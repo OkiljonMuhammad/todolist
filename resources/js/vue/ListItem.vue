@@ -7,6 +7,9 @@
     <span :class="['itemText', { completed: item.completed }]">
       {{ item.name }}
     </span>
+    <button @click="removeItem()" class="pen">
+      <font-awesome-icon icon="pen-to-square" />
+    </button>
     <button @click="removeItem()" class="trashcan">
       <font-awesome-icon icon="trash" />
     </button>
@@ -48,7 +51,7 @@ export default {
 <style scoped>
 .completed {
   text-decoration: line-through;
-  color: #999999;
+  color: #000000;
 }
 .itemText {
   width: 100%;
@@ -60,9 +63,15 @@ export default {
   align-items: center;
 }
 .trashcan {
-  background: #e6e6e6;
+  background: #009999;
   border: none;
   color: #ff0000;
+  outline: none;
+}
+.pen {
+  background: #009999;
+  border: none;
+  color: #00ff00;
   outline: none;
 }
 </style>

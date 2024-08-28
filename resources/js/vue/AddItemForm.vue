@@ -2,7 +2,7 @@
     <div class="addItem">
       <input type="text" :placeholder="$t('placeholder')" v-model="item.name">
       <font-awesome-icon
-      icon="plus-square"
+      icon="file-circle-plus"
       @click="addItem()"
       :class="[item.name ? 'active' : 'inactive', 'plus']"
       />
@@ -55,12 +55,12 @@ input {
   width: 100%;
 }
 .plus {
-  font-size: 20px;
+  font-size: 25px;
 }
 .active {
-  color: #00ce25;
+  color: #09ef37;
 }
 .inactive {
-  color: #999999;
+  color: #00001a;
 }
 </style>

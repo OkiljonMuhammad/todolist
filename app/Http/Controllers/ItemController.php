@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Item;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Http\JsonResponse;
 
 
 class ItemController extends Controller
@@ -25,7 +26,7 @@ class ItemController extends Controller
         return $newItem;
     }
     // update an item
-    public function update(Request $request, string $id): int
+    public function update(Request $request, string $id)
     {
         $existingItem = Item::find($id);
         
@@ -42,7 +43,7 @@ class ItemController extends Controller
     }
 
     // delete an item
-    public function destroy(string $id): string
+    public function destroy(string $id): JsonResponse
     {
         $existingItem = Item::find($id);
 

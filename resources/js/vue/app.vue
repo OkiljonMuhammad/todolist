@@ -46,12 +46,12 @@ export default {
 
 <style scoped>
 .todoListContainer {
-  width: 350px;
+  width: 800px;
   margin: auto;
 }
 
 .heading {
-  background: #e6e6e6;
+  background: #3366ff;
   padding: 10px;
 }
 

@@ -9,9 +9,9 @@ import i18n from './i18n';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faPlusSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faFileCirclePlus, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faPlusSquare, faTrash)
+library.add(faFileCirclePlus, faPenToSquare, faTrash)
 
 const app = createApp(App);
 
