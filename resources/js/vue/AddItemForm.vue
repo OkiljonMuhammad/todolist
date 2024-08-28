@@ -1,6 +1,6 @@
 <template>
     <div class="addItem">
-      <input type="text" v-model="item.name">
+      <input type="text" :placeholder="$t('placeholder')" v-model="item.name">
       <font-awesome-icon
       icon="plus-square"
       @click="addItem()"

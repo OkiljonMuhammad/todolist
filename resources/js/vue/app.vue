@@ -1,8 +1,8 @@
 <template>
   <div class="todoListContainer">
     <div class="heading">
+      <locale-switcher id="lan"/>
       <h1 id="title">{{ $t('todoList') }}</h1>
-      <locale-switcher />
       <add-item-form v-on:reloadList="getList()" />
     </div>
     <list-view :items="items" v-on:reloadList="getList()" />
@@ -57,5 +57,10 @@ export default {
 
 #title {
   text-align: center;
+}
+
+#lan {
+  display: flex;
+  justify-content: flex-end;
 }
 </style>
