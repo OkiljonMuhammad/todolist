@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Lang;
 
 
 class ItemController extends Controller
@@ -37,7 +38,7 @@ class ItemController extends Controller
             return $existingItem;
         }
 
-        return "Item not found";
+        return response()->json(['message' => Lang::get('item.item_not_found')]);
     }
 
     // delete an item
@@ -49,10 +50,10 @@ class ItemController extends Controller
         {
             $existingItem->delete();
 
-            return "Item successfully deleted";
+            return response()->json(['message' => Lang::get('item.item_deleted')]);
         }
 
-        return "Item not found";
+        return response()->json(['message' => Lang::get('item.item_not_found')]);
 
     }
 }
