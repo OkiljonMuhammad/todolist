@@ -1,33 +1,45 @@
 <template>
   <div class="todoListContainer">
     <div class="heading">
-      <h1 id="title">Todo List</h1>
-      <add-item-form @reloadList="fetchItems" />
-      <!--<list-item/> -->
+      <h1 id="title">{{ $t('todoList') }}</h1>
+      <locale-switcher />
+      <add-item-form v-on:reloadList="getList()" />
     </div>
-    <list-view :items="items" @reloadList="fetchItems" />
+    <list-view :items="items" v-on:reloadList="getList()" />
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import axios from 'axios'; 
 import ListView from './ListView.vue';
-import AddItemForm from './AddItemForm.vue';
+import AddItemForm from './AddItemForm.vue'; 
+import LocaleSwitcher from './LocaleSwitcher.vue';
 
 export default {
   components: {
     ListView,
     AddItemForm,
+    LocaleSwitcher
   },
-  name: 'App',
-  computed: {
-    ...mapState(['items'])
+  data() {
+    return {
+      items: [], 
+    };
   },
   methods: {
-    ...mapActions(['fetchItems']),
+    getList() {
+      axios
+        .get('/api/items')
+        .then(response => {
+          this.items = response.data; 
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
   },
   created() {
-    this.fetchItems();
+    this.getList(); 
   },
 };
 </script>
