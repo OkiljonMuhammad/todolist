@@ -3,6 +3,7 @@
 # Variables
 DOCKER_COMPOSE = docker-compose
 PHP_CONTAINER = app
+DB_CONTAINER = db
 
 # Default target
 .DEFAULT_GOAL := help
@@ -26,6 +27,9 @@ logs: ## Show logs for all containers
 
 bash: ## Access the PHP container via bash
 	$(DOCKER_COMPOSE) exec $(PHP_CONTAINER) bash
+
+db: ## Access the db container via bash
+	$(DOCKER_COMPOSE) exec $(DB_CONTAINER) bash
 
 composer-install: ## Install PHP dependencies via Composer
 	$(DOCKER_COMPOSE) exec $(PHP_CONTAINER) composer install
