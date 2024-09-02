@@ -6,11 +6,12 @@ import ListItem from './vue/ListItem.vue';
 import ListView from './vue/ListView.vue';
 import store from './store';
 import i18n from './i18n'; 
+import './scss/styles.scss';
+import vuetify from './plugins/vuetify';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faFileCirclePlus, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
-import './scss/styles.scss';
 
 library.add(faFileCirclePlus, faPenToSquare, faTrash)
 
@@ -22,4 +23,5 @@ app.component('list-view', ListView);
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(store);
 app.use(i18n);
+app.use(vuetify);
 app.mount('#app');
