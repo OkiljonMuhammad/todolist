@@ -1,0 +1,86 @@
+// From App.vue
+.todoListContainer {
+    width: 800px;
+    margin: auto;
+  }
+  
+  .heading {
+    background: #3366ff;
+    padding: 10px;
+  }
+  
+  #title {
+    text-align: center;
+  }
+  
+  #lan {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+// From AddItemForm.vue
+.addItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  input {
+    background: #f7f7f7;
+    border: 0px;
+    outline: none;
+    padding: 5px;
+    margin-right: 10px;
+    width: 100%;
+  }
+  
+  .plus {
+    font-size: 26px;
+  }
+  
+  .active {
+    color: #09ef37;
+  }
+  
+  .inactive {
+    color: #00001a;
+  }
+
+// From ListItem.vue
+.completed {
+    text-decoration: line-through;
+    color: #000000;
+  }
+  
+  .itemText {
+    width: 100%;
+    margin-left: 20px;
+  }
+  
+  .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .trashcan {
+    background: #009999;
+    border: none;
+    color: #ff0000;
+    outline: none;
+  }
+  
+  .pen {
+    background: #009999;
+    border: none;
+    color: #00ff00;
+    outline: none;
+  }
+
+// From ListView.vue
+.items {
+    background: #009999;
+    padding: 5px;
+    margin-top: 5px;
+  }
+  

@@ -43,24 +43,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.todoListContainer {
-  width: 800px;
-  margin: auto;
-}
-
-.heading {
-  background: #3366ff;
-  padding: 10px;
-}
-
-#title {
-  text-align: center;
-}
-
-#lan {
-  display: flex;
-  justify-content: flex-end;
-}
-</style>

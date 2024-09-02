@@ -10,6 +10,7 @@ import i18n from './i18n';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faFileCirclePlus, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
+import './scss/styles.scss';
 
 library.add(faFileCirclePlus, faPenToSquare, faTrash)
 

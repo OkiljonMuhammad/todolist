@@ -47,31 +47,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.completed {
-  text-decoration: line-through;
-  color: #000000;
-}
-.itemText {
-  width: 100%;
-  margin-left: 20px;
-}
-.item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.trashcan {
-  background: #009999;
-  border: none;
-  color: #ff0000;
-  outline: none;
-}
-.pen {
-  background: #009999;
-  border: none;
-  color: #00ff00;
-  outline: none;
-}
-</style>

@@ -3,7 +3,7 @@
        <div v-for="(item, index) in items" :key="index">
         <list-item
           :item="item"
-          class="item"
+          class="items"
           v-on:itemChanged="$emit('reloadList')"
         />
        </div>
@@ -19,11 +19,5 @@ export default {
   },
 };
 </script>
-<style scoped>
-.item {
-  background: #009999;
-  padding: 5px;
-  margin-top: 5px;
-}
-</style>
+
 
