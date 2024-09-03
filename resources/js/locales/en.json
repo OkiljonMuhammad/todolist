@@ -7,6 +7,9 @@
     "CancelEdit": "Cancel",
     "Delete": "Delete",
     "CancelDelete": "Cancel",
-    "DeleteItem": "Are you sure to delete this note?"
+    "DeleteItem": "Are you sure to delete this note?",
+    "addItemTitle": "Add Todo",
+    "AddItem": "Save",
+    "CancelAddItem": "Cancel"
   }
   

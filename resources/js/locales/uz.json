@@ -7,6 +7,9 @@
     "CancelEdit": "Bekor qilish",
     "Delete": "O'chirish",
     "CancelDelete": "Bekor qilish",
-    "DeleteItem": "Ushbu eslatmani o'chirmoqchimisiz?"
+    "DeleteItem": "Ushbu eslatmani o'chirmoqchimisiz?",
+    "addItemTitle": "Eslatma qo'shish",
+    "AddItem": "Saqlash",
+    "CancelAddItem": "Bekor qilish"
   }
   
