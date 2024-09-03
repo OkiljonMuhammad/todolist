@@ -1,89 +1,149 @@
-// From App.vue
+// General container for the todo list
 .todoListContainer {
-    width: 800px;
-    margin: auto;
-  }
-  
-  .heading {
-    background: #3366ff;
-    padding: 10px;
-  }
-  
-  #title {
-    text-align: center;
-  }
-  
-  #lan {
-    display: flex;
-    justify-content: flex-end;
-  }
+  width: 800px;
+  margin: auto;
+}
 
-// From AddItemForm.vue
+// Heading styles
+.heading {
+  background: #3366ff;
+  padding: 10px;
+}
+
+#title {
+  text-align: center;
+}
+
+// Language switcher layout
+#lan {
+  display: flex;
+  justify-content: flex-end;
+}
+
+// Add Item Form styles
 .addItem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  input {
-    background: #f7f7f7;
-    border: 0px;
-    outline: none;
-    padding: 5px;
-    margin-right: 10px;
-    width: 100%;
-  }
-  
-  .plus {
-    font-size: 26px;
-  }
-  
-  .active {
-    color: #09ef37;
-  }
-  
-  .inactive {
-    color: #00001a;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-// From ListItem.vue
+.inputfield {
+  background: #f7f7f7;
+  border: 0;
+  outline: none;
+  padding: 5px;
+  margin-right: 10px;
+  width: 100%;
+}
+
+.plus {
+  font-size: 26px;
+}
+
+.active {
+  color: #09ef37;
+}
+
+.inactive {
+  color: #00001a;
+}
+
+// List Item styles
 .completed {
-    text-decoration: line-through;
-    color: #000000;
-  }
-  
-  .itemText {
-    width: 100%;
-    margin-left: 20px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
+  text-decoration: line-through;
+  color: #000000;
+}
 
-  .item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .trashcan {
-    background: #009999;
-    border: none;
-    color: #ff0000;
-    outline: none;
-  }
-  
-  .pen {
-    background: #009999;
-    border: none;
-    color: #00ff00;
-    outline: none;
-  }
+.itemText {
+  width: 100%;
+  margin-left: 20px;
+}
 
-// From ListView.vue
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trashcan {
+  background: #009999;
+  border: none;
+  color: #ff0000;
+  outline: none;
+}
+
+.pen {
+  background: #009999;
+  border: none;
+  color: #00ff00;
+  outline: none;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #067d9e;
+  padding: 20px;
+  border-radius: 5px;
+  width: 760px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content input {
+  background: #f7f7f7;
+  border: 0px;
+  outline: none;
+  width: 740px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.modal-content button {
+  margin-right: 10px;
+}
+
+// List View styles
 .items {
-    background: #009999;
-    padding: 5px;
-    margin-top: 5px;
-  }
-  
+  background: #009999;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+// Locale Switcher styles
+.enbutton {
+  margin: 5px;
+  width: 50px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  background-image: url('./images/uk_flag.png');
+  background-size: cover; 
+  background-position: center;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.uzbutton {
+  margin: 5px;
+  width: 50px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  background-image: url('./images/uzbekistan_flag.png');
+  background-size: cover; 
+  background-position: center;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}

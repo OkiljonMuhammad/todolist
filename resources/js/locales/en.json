@@ -1,6 +1,9 @@
 {
     "welcome": "Welcome",
     "todoList": "Todo List",
-    "placeholder": "Create todo item here"
+    "placeholder": "Create todo item here",
+    "EditItem": "Edit item",
+    "SaveEdit": "Save",
+    "CancelEdit": "Cancel"
   }
   

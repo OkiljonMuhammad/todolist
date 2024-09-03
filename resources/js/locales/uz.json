@@ -1,6 +1,9 @@
 {
     "welcome": "Xush kelibsiz",
     "todoList": "Eslatmalar ro'yxati",
-     "placeholder": "Eslatma yarating"
+    "placeholder": "Eslatma yarating",
+    "EditItem": "Eslatmani o'zgartirish",
+    "SaveEdit": "Saqlash",
+    "CancelEdit": "Bekor qilish"
   }
   

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <button @click="changeLocale('en')">English</button>
-    <button @click="changeLocale('uz')">Uzbek</button>
+    <button class="enbutton" @click="changeLocale('en')"></button>
+    <button class="uzbutton" @click="changeLocale('uz')"></button>
   </div>
 </template>
 
@@ -20,10 +20,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-
-button {
-  margin: 5px;
-}
-</style>
