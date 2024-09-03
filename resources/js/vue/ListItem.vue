@@ -11,18 +11,31 @@
       <button @click="openEditModal" class="pen">
         <font-awesome-icon icon="pen-to-square" />
       </button>
-      <button @click="removeItem" class="trashcan">
+      <button @click="openDeleteModal" class="trashcan">
         <font-awesome-icon icon="trash" />
       </button>
     </div>
 
     <!-- Edit Modal -->
-    <div v-if="showModal" class="modal-overlay">
-      <div class="modal-content">
-        <h3>{{$t('EditItem')}}</h3>
-        <input v-model="editName" type="text" placeholder="Enter new name" />
-        <button @click="saveEdit">{{$t('SaveEdit')}}</button>
-        <button @click="closeEditModal">{{$t('CancelEdit')}}</button>
+    <div v-if="showModal" class="edit-modal-overlay">
+      <div class="edit-modal-content">
+        <h3 class="edit-item-title">{{$t('EditItem')}}</h3>
+        <input v-model="editName" type="text"/>
+        <div class="edit-buttons">
+        <button class="save-button" @click="saveEdit">{{$t('SaveEdit')}}</button>
+        <button class="cancel-button" @click="closeEditModal">{{$t('CancelEdit')}}</button>
+      </div>
+      </div>
+    </div>
+
+     <!-- Delete Modal -->
+    <div v-if="deleteModal" class="delete-modal-overlay">
+      <div class="delete-modal-content">
+        <h3 class="delete-item-title">{{$t('DeleteItem')}}</h3>
+        <div class="delete-buttons">
+        <button class="delete-button" @click="removeItem">{{$t('Delete')}}</button>
+        <button class="cancel-detele-button" @click="closeDeleteModal">{{$t('CancelDelete')}}</button>
+      </div>
       </div>
     </div>
   </div>
@@ -35,6 +48,7 @@ export default {
   props: ['item'],
   data() {
     return {
+      deleteModal: false,
       showModal: false,
       editName: this.item.name
     };
@@ -48,9 +62,16 @@ export default {
         console.error(error);
       });
     },
+    openDeleteModal() {
+      this.deleteModal = true;
+    },
+    closeDeleteModal() {
+      this.deleteModal = false;
+    },
     removeItem() {
       this.deleteItem(this.item.id).then(() => {
         this.$emit('itemChanged');
+        this.closeDeleteModal();
       }).catch(error => {
         console.error(error);
       });

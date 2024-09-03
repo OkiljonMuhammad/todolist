@@ -2,8 +2,11 @@
     "welcome": "Welcome",
     "todoList": "Todo List",
     "placeholder": "Create todo item here",
-    "EditItem": "Edit item",
+    "EditItem": "Edit",
     "SaveEdit": "Save",
-    "CancelEdit": "Cancel"
+    "CancelEdit": "Cancel",
+    "Delete": "Delete",
+    "CancelDelete": "Cancel",
+    "DeleteItem": "Are you sure to delete this note?"
   }
   

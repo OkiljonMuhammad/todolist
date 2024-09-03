@@ -2,8 +2,11 @@
     "welcome": "Xush kelibsiz",
     "todoList": "Eslatmalar ro'yxati",
     "placeholder": "Eslatma yarating",
-    "EditItem": "Eslatmani o'zgartirish",
+    "EditItem": "O'zgartirish",
     "SaveEdit": "Saqlash",
-    "CancelEdit": "Bekor qilish"
+    "CancelEdit": "Bekor qilish",
+    "Delete": "O'chirish",
+    "CancelDelete": "Bekor qilish",
+    "DeleteItem": "Bu eslatmani o'chirmoqchimisiz?"
   }
   

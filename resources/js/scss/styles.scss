@@ -79,7 +79,7 @@
   outline: none;
 }
 
-.modal-overlay {
+.edit-modal-overlay, .delete-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -91,7 +91,7 @@
   align-items: center;
 }
 
-.modal-content {
+.edit-modal-content {
   background: #067d9e;
   padding: 20px;
   border-radius: 5px;
@@ -99,17 +99,78 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.modal-content input {
-  background: #f7f7f7;
+.delete-modal-content {
+  background: #edf16a;
+  padding: 20px;
+  border-radius: 5px;
+  width: 760px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-modal-content input {
+  background: #d8d6d6;
   border: 0px;
   outline: none;
   width: 740px;
   padding: 5px;
-  margin-bottom: 10px;
 }
 
-.modal-content button {
+.edit-buttons{
+  display: flex;
+  justify-content: flex-end;
   margin-right: 10px;
+}
+
+.delete-buttons{
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.edit-item-title {
+  text-align: center;  
+}
+
+.delete-item-title {
+  text-align: center;  
+}
+
+.save-button {
+  background-color: #09ef37;
+  border-radius: 2px;
+  height: 20px;
+  border: 0px;
+  outline: none;
+  margin-top: 15px;
+}
+
+.delete-button {
+  background-color: #ef3b09;
+  border-radius: 2px;
+  height: 20px;
+  border: 0px;
+  outline: none;
+  margin-top: 15px;
+}
+
+.cancel-button {
+  background-color: #ef3b09;
+  border-radius: 2px;
+  height: 20px;
+  border: 0px;
+  outline: none;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.cancel-detele-button {
+  background-color: #09ef37;
+  border-radius: 2px;
+  height: 20px;
+  border: 0px;
+  outline: none;
+  margin-top: 15px;
+  margin-left: 10px;
 }
 
 // List View styles
