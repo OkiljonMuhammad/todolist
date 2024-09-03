@@ -1,6 +1,7 @@
 import { createVuetify } from 'vuetify';
-// import 'vuetify/styles'; 
+// import 'vuetify/styles';
 
-const vuetify = createVuetify(); 
+const vuetify = createVuetify();
 
 export default vuetify;
+

@@ -14,6 +14,7 @@ import moment from 'moment';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faFileCirclePlus, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
+import '@mdi/font/css/materialdesignicons.css';
 
 library.add(faFileCirclePlus, faPenToSquare, faTrash)
 
