@@ -24,7 +24,7 @@ export default {
   methods: {
     ...mapActions(['deleteItem']),
     updateCheck() {
-      // Assuming you have an updateItem action
+      // updateItem action
       this.$store.dispatch('updateItem', this.item).then(() => {
         this.$emit('itemChanged');
       }).catch(error => {
