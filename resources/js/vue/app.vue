@@ -3,14 +3,14 @@
     <div class="heading">
       <locale-switcher id="lan"/>
       <h1 id="title">{{ $t('todoList') }}</h1>
-      <add-item-form v-on:reloadList="getList()" />
+      <add-item-form v-on:reloadList="fetchItems" />
     </div>
-    <list-view :items="items" v-on:reloadList="getList()" />
+    <list-view v-on:reloadList="fetchItems" />
   </div>
 </template>
 
 <script>
-import axios from 'axios'; 
+import { mapActions } from 'vuex';
 import ListView from './ListView.vue';
 import AddItemForm from './AddItemForm.vue'; 
 import LocaleSwitcher from './LocaleSwitcher.vue';
@@ -21,26 +21,11 @@ export default {
     AddItemForm,
     LocaleSwitcher
   },
-  data() {
-    return {
-      items: [], 
-    };
-  },
   methods: {
-    getList() {
-      axios
-        .get('/api/items')
-        .then(response => {
-          this.items = response.data; 
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    },
+    ...mapActions(['fetchItems'])
   },
   created() {
-    this.getList(); 
-  },
+    this.fetchItems();
+  }
 };
 </script>
-

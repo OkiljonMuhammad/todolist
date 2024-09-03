@@ -4,7 +4,7 @@ import App from './vue/app.vue';
 import addItemForm from './vue/AddItemForm.vue';
 import ListItem from './vue/ListItem.vue';
 import ListView from './vue/ListView.vue';
-import store from './store';
+import store from './store/index.js';
 import i18n from './i18n'; 
 import './scss/styles.scss';
 import vuetify from './plugins/vuetify';

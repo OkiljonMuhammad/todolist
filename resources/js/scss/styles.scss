@@ -55,8 +55,11 @@
   .itemText {
     width: 100%;
     margin-left: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
-  
+
   .item {
     display: flex;
     justify-content: center;

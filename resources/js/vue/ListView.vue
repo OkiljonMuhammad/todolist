@@ -1,23 +1,31 @@
 <template>
-    <div>
-       <div v-for="(item, index) in items" :key="index">
-        <list-item
-          :item="item"
-          class="items"
-          v-on:itemChanged="$emit('reloadList')"
-        />
-       </div>
+  <div>
+    <div v-for="(item, index) in items" :key="index">
+      <list-item
+        :item="item"
+        class="items"
+        v-on:itemChanged="fetchItems"
+      />
     </div>
+  </div>
 </template>
 
 <script>
-import ListItem from './ListItem.vue'
+import { mapState, mapActions } from 'vuex';
+import ListItem from './ListItem.vue';
+
 export default {
-  props: ['items'], 
   components: {
     ListItem
   },
+  computed: {
+    ...mapState(['items'])
+  },
+  methods: {
+    ...mapActions(['fetchItems'])
+  },
+  created() {
+    this.fetchItems();
+  }
 };
 </script>
-
-

@@ -12,6 +12,12 @@ const store = createStore({
         addItem(state, item) {
             state.items.push(item);
         },
+        updateItem(state, updatedItem) {
+            const index = state.items.findIndex(item => item.id === updatedItem.id);
+            if (index !== -1) {
+                state.items.splice(index, 1, updatedItem);
+            }
+        },
         removeItem(state, itemId) {
             state.items = state.items.filter(item => item.id !== itemId);
         }
@@ -27,21 +33,33 @@ const store = createStore({
                 });
         },
         createItem({ commit }, item) {
-            return axios.post('/api/items', item)
+            return axios.post('/api/item/store', { item })
                 .then(response => {
                     commit('addItem', response.data);
                 })
                 .catch(error => {
                     console.error('Error adding item:', error);
+                    throw error;
+                });
+        },
+        updateItem({ commit }, item) {
+            return axios.put(`/api/item/${item.id}`, { item })
+                .then(response => {
+                    commit('updateItem', response.data);
+                })
+                .catch(error => {
+                    console.error('Error updating item:', error);
+                    throw error;
                 });
         },
         deleteItem({ commit }, itemId) {
-            return axios.delete(`/api/items/${itemId}`)
+            return axios.delete(`/api/item/${itemId}`)
                 .then(() => {
                     commit('removeItem', itemId);
                 })
                 .catch(error => {
                     console.error('Error deleting item:', error);
+                    throw error;
                 });
         }
     },
