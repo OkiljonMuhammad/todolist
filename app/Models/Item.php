@@ -14,4 +14,8 @@ class Item extends Model
         'completed',
         'created_at',
     ];
+
+    protected $casts = [
+        'completed' => 'boolean',
+    ];
 }

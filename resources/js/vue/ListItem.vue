@@ -3,6 +3,7 @@
     <div class="item">
       <input 
         type="checkbox"
+        :checked="item.completed"
         @change="updateCheck"
         v-model="item.completed" />
       <span :class="['itemText', { completed: item.completed }]">
