@@ -102,6 +102,20 @@
 }
 
 // Upload Excel File Modal Styles
+.uploadFile {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.plus {
+  font-size: 26px;
+  background: #3366ff;
+  border: none;
+  color: #040404;
+  outline: none;
+}
+
 .upload-modal-overlay {
   position: fixed;
   top: 0;
