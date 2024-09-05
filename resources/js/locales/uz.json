@@ -10,6 +10,9 @@
     "DeleteItem": "Ushbu eslatmani o'chirmoqchimisiz?",
     "addItemTitle": "Eslatma qo'shish",
     "AddItem": "Saqlash",
-    "CancelAddItem": "Bekor qilish"
+    "CancelAddItem": "Bekor qilish",
+    "upload-excel-file": "Excel faylni yuklash",
+    "upload": "Yuklash",
+    "cancel-upload": "Bekor qilish"
   }
   

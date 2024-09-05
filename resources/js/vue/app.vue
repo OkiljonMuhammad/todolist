@@ -4,6 +4,7 @@
       <locale-switcher id="lan"/>
       <h1 id="title">{{ $t('todoList') }}</h1>
       <add-item-form v-on:reloadList="fetchItems" />
+      <upload-excel-file />
     </div>
     <list-view v-on:reloadList="fetchItems" />
   </div>
@@ -14,12 +15,14 @@ import { mapActions } from 'vuex';
 import ListView from './ListView.vue';
 import AddItemForm from './AddItemForm.vue'; 
 import LocaleSwitcher from './LocaleSwitcher.vue';
+import UploadExcelFile from './UploadExcelFile.vue';
 
 export default {
   components: {
     ListView,
     AddItemForm,
-    LocaleSwitcher
+    LocaleSwitcher,
+    UploadExcelFile
   },
   methods: {
     ...mapActions(['fetchItems'])

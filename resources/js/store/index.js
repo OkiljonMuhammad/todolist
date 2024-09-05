@@ -70,6 +70,21 @@ const store = createStore({
                     console.error('Error deleting item:', error); 
                     throw error; 
                 });
+        },
+
+        uploadExcelFile({ commit }, formData) {
+            return axios.post('/api/items/import', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            .then(response => {
+                commit('setItems', response.data); 
+            })
+            .catch(error => {
+                console.error('Error uploading Excel file:', error);
+                throw error;
+            });
         }
     },
     // Get the list of items from the store

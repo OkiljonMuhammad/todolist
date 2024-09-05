@@ -4,6 +4,7 @@ import App from './vue/app.vue';
 import addItemForm from './vue/AddItemForm.vue';
 import ListItem from './vue/ListItem.vue';
 import ListView from './vue/ListView.vue';
+import UploadExcelFile from './vue/UploadExcelFile.vue';
 import store from './store/index.js';
 import i18n from './i18n'; 
 import './scss/styles.scss';
@@ -23,6 +24,7 @@ const app = createApp(App);
 app.component('add-item-form', addItemForm);
 app.component('list-item', ListItem);
 app.component('list-view', ListView);
+app.component('upload-excel-file', UploadExcelFile);
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(store);
 app.use(i18n);

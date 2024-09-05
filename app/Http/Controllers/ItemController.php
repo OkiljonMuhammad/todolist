@@ -7,10 +7,23 @@ use App\Models\Item;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Http\JsonResponse;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ItemsImport;
 
 class ItemController extends Controller
 {   
+    // imports from excel file
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx,xls,csv|max:2048',
+        ]);
+
+        Excel::import(new ItemsImport, $request->file('file'));
+
+        return response()->json(['message' => 'Items imported successfully'], 200);
+    }
+
     //get items
     public function index()
     {

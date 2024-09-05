@@ -10,6 +10,9 @@
     "DeleteItem": "Are you sure to delete this note?",
     "addItemTitle": "Add Todo",
     "AddItem": "Save",
-    "CancelAddItem": "Cancel"
+    "CancelAddItem": "Cancel",
+    "upload-excel-file": "Upload Excel File",
+    "upload": "Upload",
+    "cancel-upload": "Cancel"
   }
   
