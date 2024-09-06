@@ -13,6 +13,9 @@
     "CancelAddItem": "Cancel",
     "upload-excel-file": "Upload Excel File",
     "upload": "Upload",
-    "cancel-upload": "Cancel"
+    "cancel-upload": "Cancel",
+    "choose-file": "Choose File",
+    "upload-file": "import from file",
+    "add-note": "add note"
   }
   

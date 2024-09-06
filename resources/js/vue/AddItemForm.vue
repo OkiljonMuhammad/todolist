@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="addItem">
-      <button @click="openAddItemModal" class="plus">
-        <font-awesome-icon icon="circle-plus" />
+      <button @click="openAddItemModal" class="circle-plus">
+        {{$t('add-note')}} <font-awesome-icon icon="circle-plus" />
       </button>
     </div>
     <!-- Add Item Modal -->

@@ -36,12 +36,13 @@
   width: 100%;
 }
 
-.plus {
-  font-size: 26px;
+.circle-plus {
+  font-size: 20px;
   background: #3366ff;
   border: none;
   color: #040404;
   outline: none;
+  cursor: pointer;
 }
 // Add Item Modal Styles
 .add-modal-overlay {
@@ -102,18 +103,37 @@
 }
 
 // Upload Excel File Modal Styles
+.upload-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;             
+}
+
 .uploadFile {
+  text-align: center;
+}
+
+.upload-label{
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 150px;
+  height: 30px;
+  border: 1px solid #0a0a0a;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  color: #0a0a0a;
+  font-size: 20px;
+  cursor: pointer;
 }
 
-.plus {
-  font-size: 26px;
+.file-plus {
+  font-size: 20px;
   background: #3366ff;
   border: none;
   color: #040404;
   outline: none;
+  cursor: pointer;
 }
 
 .upload-modal-overlay {
@@ -345,3 +365,4 @@
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
+
