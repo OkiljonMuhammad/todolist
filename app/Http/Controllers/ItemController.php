@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Lang;
 use Illuminate\Http\JsonResponse;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ItemsImport;
+use App\Exports\ItemsExport;
 
 class ItemController extends Controller
 {   
@@ -21,7 +22,13 @@ class ItemController extends Controller
 
         Excel::import(new ItemsImport, $request->file('file'));
 
-        return response()->json(['message' => 'Items imported successfully'], 200);
+        return response()->json(['message' => 'Items imported successfully']);
+    }
+
+    //exports as an excel file
+    public function export()
+    {
+        return Excel::download(new ItemsExport, 'todos.xlsx');
     }
 
     //get items

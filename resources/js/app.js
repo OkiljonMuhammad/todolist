@@ -11,6 +11,8 @@ import './scss/styles.scss';
 import vuetify from './plugins/vuetify';
 import _ from 'lodash';
 import moment from 'moment';
+import { defineRule, configure, Field, Form, ErrorMessage } from 'vee-validate';
+import * as yup from 'yup';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
