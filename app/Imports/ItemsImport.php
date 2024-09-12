@@ -4,8 +4,10 @@ namespace App\Imports;
 
 use App\Models\Item;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithChunkReading;
 
-class ItemsImport implements ToModel
+
+class ItemsImport implements ToModel, WithChunkReading
 {
     public function model(array $row)
     {
@@ -28,5 +30,10 @@ class ItemsImport implements ToModel
         return [
             '0' => 'required', 
         ];
+    }
+
+    public function chunkSize(): int
+    {
+        return 100; 
     }
 }

@@ -90,14 +90,13 @@ const store = createStore({
             return axios({
               url: '/api/items/export',
               method: 'GET',
-              responseType: 'blob'  // Important for binary data like files
+              responseType: 'blob'  
             })
             .then((response) => {
-              // Create a download link for the file
               const url = window.URL.createObjectURL(new Blob([response.data]));
               const link = document.createElement('a');
               link.href = url;
-              link.setAttribute('download', 'items.xlsx');  // Specify the file name
+              link.setAttribute('download', 'items.xlsx');  
               document.body.appendChild(link);
               link.click();
               link.remove();

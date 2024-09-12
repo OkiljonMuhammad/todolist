@@ -2,7 +2,7 @@
     <div class="export-container">
       <div class="exportFile">
         <button @click="exportFile" class="file-download">
-          {{$t('export-file')}} <font-awesome-icon icon="file-download" />
+          {{$t('export-file')}}
         </button>
       </div>
     </div>
