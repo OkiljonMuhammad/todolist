@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Models\Item;
+use Modules\Items\Models\Item;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 

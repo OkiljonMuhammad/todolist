@@ -1,10 +1,12 @@
-?php
+<?php
 
 namespace Modules\Items\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Modules\Users\Models\User;
+
 class Item extends Model
 {
     use HasFactory;

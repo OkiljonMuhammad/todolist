@@ -4,7 +4,7 @@ namespace Modules\Items\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Item;
+use Modules\Items\Models\Item;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Http\JsonResponse;
