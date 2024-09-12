@@ -14,8 +14,9 @@
     "upload-excel-file": "Upload Excel File",
     "upload": "Upload",
     "cancel-upload": "Cancel",
-    "choose-file": "Choose File",
-    "upload-file": "import from file",
-    "add-note": "add note"
+    "choose-file": "Choose",
+    "upload-file": "upload",
+    "add-note": "create",
+    "export-file": "download"
   }
   

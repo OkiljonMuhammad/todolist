@@ -40,7 +40,7 @@
   font-size: 20px;
   background: #3366ff;
   border: none;
-  color: #040404;
+  color: #ffffff;
   outline: none;
   cursor: pointer;
 }
@@ -117,7 +117,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px;
+  width: 100px;
   height: 30px;
   border: 1px solid #0a0a0a;
   border-radius: 5px;
@@ -131,7 +131,7 @@
   font-size: 20px;
   background: #3366ff;
   border: none;
-  color: #040404;
+  color: #ffffff;
   outline: none;
   cursor: pointer;
 }
@@ -365,4 +365,22 @@
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
-
+.export-container {
+  display: flex;
+  justify-content: center;
+}
+.exportFile {
+  margin: 20px;
+}
+.file-download {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}

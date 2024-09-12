@@ -85,8 +85,31 @@ const store = createStore({
                 console.error('Error uploading Excel file:', error);
                 throw error;
             });
-        }
+        },
+        exportExcelFile() {
+            return axios({
+              url: '/api/items/export',
+              method: 'GET',
+              responseType: 'blob'  // Important for binary data like files
+            })
+            .then((response) => {
+              // Create a download link for the file
+              const url = window.URL.createObjectURL(new Blob([response.data]));
+              const link = document.createElement('a');
+              link.href = url;
+              link.setAttribute('download', 'items.xlsx');  // Specify the file name
+              document.body.appendChild(link);
+              link.click();
+              link.remove();
+            })
+            .catch(error => {
+              console.error('Error exporting Excel file:', error);
+              throw error;
+            });
+          }
     },
+
+
     // Get the list of items from the store
     getters: {
         items: state => state.items 

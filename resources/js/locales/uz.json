@@ -14,8 +14,10 @@
     "upload-excel-file": "Excel faylni yuklash",
     "upload": "Yuklash",
     "cancel-upload": "Bekor qilish",
-    "choose-file": "Faylni tanlang",
-    "upload-file": "fayldan yuklash",
-    "add-note": "eslatma qo'shish"
+    "choose-file": "Tanlang",
+    "upload-file": "yuklash",
+    "add-note": "yaratish",
+    "export-file": "eksport"
   }
+  
   
