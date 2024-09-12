@@ -1,5 +1,6 @@
 import { createStore } from 'vuex';
 import axios from 'axios';
+import apiUrls from '../config/api.js';
 
 const store = createStore({
     state: {
@@ -30,7 +31,7 @@ const store = createStore({
     actions: {
         // Fetch items from API and update store
         fetchItems({ commit }) {
-            return axios.get('/api/items')
+            return axios.get(apiUrls.fetchItems)
                 .then(response => {
                     commit('setItems', response.data); 
                 })
@@ -40,7 +41,7 @@ const store = createStore({
         },
         // Add new item to store
         createItem({ commit }, item) {
-            return axios.post('/api/item/store', { item })
+            return axios.post(apiUrls.storeItem, { item })
                 .then(response => {
                     commit('addItem', response.data); 
                 })
@@ -51,7 +52,7 @@ const store = createStore({
         },
         // Update existing item in store
         updateItem({ commit }, item) {
-            return axios.put(`/api/item/${item.id}`, { item })
+            return axios.put(apiUrls.updateItem(item.id), { item })
                 .then(response => {
                     commit('updateItem', response.data); 
                 })
@@ -62,7 +63,7 @@ const store = createStore({
         },
         // Remove item from store
         deleteItem({ commit }, itemId) {
-            return axios.delete(`/api/item/${itemId}`)
+            return axios.delete(apiUrls.destroyItem(itemId))
                 .then(() => {
                     commit('removeItem', itemId); 
                 })
@@ -73,7 +74,7 @@ const store = createStore({
         },
 
         uploadExcelFile({ commit }, formData) {
-            return axios.post('/api/items/import', formData, {
+            return axios.post(apiUrls.importItem, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -88,7 +89,7 @@ const store = createStore({
         },
         exportExcelFile() {
             return axios({
-              url: '/api/items/export',
+              url: apiUrls.exportItem,
               method: 'GET',
               responseType: 'blob'  
             })
