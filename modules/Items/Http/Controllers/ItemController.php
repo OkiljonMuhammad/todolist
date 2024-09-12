@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Modules\Items\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Item;
 use Illuminate\Support\Carbon;
@@ -38,7 +39,10 @@ class ItemController extends Controller
     }
 
     public function store(Request $request): Item
-    {
+    {   
+        $request->validate([
+            'item.name' => 'required|string|max:255'
+        ]);
         $newItem = new Item;
         $newItem->name = $request->item['name'];
         $newItem->save();
