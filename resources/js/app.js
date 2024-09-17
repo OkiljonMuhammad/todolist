@@ -24,6 +24,19 @@ library.add(faCirclePlus, faFileCirclePlus, faPenToSquare, faTrash)
 
 const app = createApp(App);
 
+app.component('VForm', Form);
+app.component('VField', Field);
+app.component('ErrorMessage', ErrorMessage);
+
+defineRule('required', value => !!value || i18n.global.t('required'));
+defineRule('email', value => {
+  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return pattern.test(value) || i18n.global.t('invalid_email');
+});
+
+configure({
+  validateOnInput: true, 
+});
 app.component('add-item-form', addItemForm);
 app.component('list-item', ListItem);
 app.component('list-view', ListView);

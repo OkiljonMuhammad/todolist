@@ -17,6 +17,9 @@
     "choose-file": "Choose",
     "upload-file": "upload",
     "add-note": "create",
-    "export-file": "download"
+    "export-file": "download",
+    "required":"This field is required",
+    "invalid_email": "Invalid email"
+
   }
   
