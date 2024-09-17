@@ -2,38 +2,34 @@
 
 namespace App\Imports;
 
+use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\ToCollection;
+use Generator;
 use Modules\Items\Models\Item;
-use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\WithChunkReading;
 
-
-class ItemsImport implements ToModel, WithChunkReading
+class ItemsImport implements ToCollection
 {
-    public function model(array $row)
+    public function collection(Collection $rows)
     {
-       
-       if (!isset($row[0]) || empty(trim($row[0]))) {
+        // Iterate over the generator and handle each row
+        foreach ($this->processRows($rows) as $data) {
+            if (!isset($data[0]) || empty(trim($data[0]))) {
+                continue;
+            }
 
-        return null;
+            Item::create([
+                'name' => $data[0],
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 
-    return new Item([
-        'name' => $row[0],
-        'created_at' => now(),
-        'updated_at' => now(),
-    ]);
-
-    }
-
-    public function rules(): array
+    // A generator function that yields rows one by one.
+    public function processRows(Collection $rows): Generator
     {
-        return [
-            '0' => 'required', 
-        ];
-    }
-
-    public function chunkSize(): int
-    {
-        return 100; 
+        foreach ($rows as $row) {
+            yield $row;
+        }
     }
 }
