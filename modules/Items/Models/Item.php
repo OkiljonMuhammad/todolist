@@ -6,20 +6,27 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Modules\Users\Models\User;
+use Iben\Statable\Statable;
 
 class Item extends Model
 {
-    use HasFactory;
+    use HasFactory, Statable;
 
     protected $fillable = [
         'name',
         'completed',
         'created_at',
+        'status',
     ];
     
     protected $casts = [
         'completed' => 'boolean',
     ];
+
+    public function getGraph()
+    {
+        return 'item_graph';  
+    }
 
     public function user()
     {

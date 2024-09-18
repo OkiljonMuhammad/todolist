@@ -14,7 +14,7 @@ use App\Exports\ItemsExport;
 
 class ItemController extends Controller
 {   
-    // imports from excel file
+    // Import from excel file
     public function import(Request $request)
     {
         $request->validate([
@@ -26,13 +26,13 @@ class ItemController extends Controller
         return response()->json(['message' => 'Items imported successfully']);
     }
 
-    //exports as an excel file
+    // Export as an excel file
     public function export()
     {
         return Excel::download(new ItemsExport, 'todos.xlsx');
     }
 
-    //get items
+    // Get items
     public function index()
     {
         return Item::orderBy('created_at', 'DESC')->get();
@@ -49,7 +49,7 @@ class ItemController extends Controller
 
         return $newItem;
     }
-    // update an item
+    // Update an item
     public function update(Request $request, string $id)
     {
         $existingItem = Item::find($id);
@@ -66,7 +66,7 @@ class ItemController extends Controller
         return response()->json(['message' => Lang::get('item.item_not_found')], 404);
     }
 
-    // delete an item
+    // Delete an item
     public function destroy(string $id): JsonResponse
     {
         $existingItem = Item::find($id);
@@ -81,4 +81,75 @@ class ItemController extends Controller
         return response()->json(['message' => Lang::get('item.item_not_found')]);
 
     }
+
+    // Start an item (transition from 'new' to 'in_progress')
+    public function start(string $id)
+    {
+        $item = Item::find($id);
+
+        if ($item && $item->canApply('start')) {
+            $item->apply('start');
+            $item->save();
+            return response()->json(['message' => 'Item started successfully']);
+        }
+
+        return response()->json(['message' => 'Cannot start this item']);
+    }
+
+    // Complete an item (transition from 'in_progress' to 'completed')
+    public function complete(string $id)
+    {
+        $item = Item::find($id);
+
+        if ($item && $item->canApply('complete')) {
+            $item->apply('complete');
+            $item->save();
+            return response()->json(['message' => 'Item completed successfully']);
+        }
+
+        return response()->json(['message' => 'Cannot complete this item']);
+    }
+
+    // Archive an item (transition from 'completed' to 'archived')
+    public function archive(string $id)
+    {
+        $item = Item::find($id);
+
+        if ($item && $item->canApply('archive')) {
+            $item->apply('archive');
+            $item->save();
+            return response()->json(['message' => 'Item archived successfully']);
+        }
+
+        return response()->json(['message' => 'Cannot archive this item']);
+    }
+
+    // Cancel an item (transition from 'new' or 'in_progress' to 'canceled')
+    public function cancel(string $id)
+    {
+        $item = Item::find($id);
+
+        if ($item && $item->canApply('cancel')) {
+            $item->apply('cancel');
+            $item->save();
+            return response()->json(['message' => 'Item canceled successfully']);
+        }
+
+        return response()->json(['message' => 'Cannot cancel this item']);
+    }
+
+    // Restore an item (transition from 'archived' or 'canceled' to 'new')
+    public function restore(string $id)
+    {
+        $item = Item::find($id);
+
+        if ($item && $item->canApply('restore')) {
+            $item->apply('restore');
+            $item->save();
+            return response()->json(['message' => 'Item restored successfully']);
+        }
+
+        return response()->json(['message' => 'Cannot restore this item']);
+    }
+
 }
