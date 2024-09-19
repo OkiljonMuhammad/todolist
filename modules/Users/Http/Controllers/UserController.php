@@ -2,18 +2,18 @@
 
 namespace Modules\Users\Http\Controllers;
 
-use Modules\Users\Models\User;
+use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Lang;
+use Modules\Users\Models\User;
+use Illuminate\Http\Request;
+
 
 class UserController extends Controller
 {
-    
     // Register a new user.
-     
     public function register(Request $request)
     {
         $request->validate([
@@ -28,12 +28,10 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return response()->json(['message' => 'User registered successfully']);
+        return response()->json(['message' => Lang::get('user.register')]);
     }
 
-  
     // Login an existing user.
-     
     public function login(Request $request)
     {
         $request->validate([
@@ -43,7 +41,7 @@ class UserController extends Controller
 
         if (!Auth::attempt($request->only('email', 'password'))) {
             throw ValidationException::withMessages([
-                'email' => ['The provided credentials are incorrect.'],
+                'email' => [Lang::get('user.email_error')],
             ]);
         }
 
@@ -55,20 +53,16 @@ class UserController extends Controller
             'token_type' => 'Bearer',
         ]);
     }
-
     
     // Logout the authenticated user.
-     
     public function logout(Request $request)
     {
         $request->user()->currentAccessToken()->delete();
 
-        return response()->json(['message' => 'User logged out successfully']);
+        return response()->json(['message' => Lang::get('user.logout')]);
     }
-
     
     // Get the authenticated user.
-     
     public function user(Request $request)
     {
         return response()->json($request->user());

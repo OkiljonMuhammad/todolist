@@ -4,9 +4,9 @@ namespace Modules\Items\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
 use Modules\Users\Models\User;
 use Iben\Statable\Statable;
+use Carbon\Carbon;
 
 class Item extends Model
 {

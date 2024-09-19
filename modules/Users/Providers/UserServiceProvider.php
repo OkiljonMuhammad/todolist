@@ -7,21 +7,13 @@ use Illuminate\Support\ServiceProvider;
 
 class UserServiceProvider extends ServiceProvider
 {
-    /**
-     * Register services.
-     *
-     * @return void
-     */
+    // Register services
     public function register()
     {
         // Register any module-specific bindings or services here
     }
 
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
+    // Bootstrap services
     public function boot()
     {
         // Load web routes with 'web' middleware and a namespace for controllers

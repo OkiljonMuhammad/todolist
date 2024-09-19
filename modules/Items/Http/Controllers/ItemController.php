@@ -23,7 +23,7 @@ class ItemController extends Controller
 
         Excel::import(new ItemsImport, $request->file('file'));
 
-        return response()->json(['message' => 'Items imported successfully']);
+        return response()->json(['message' => Lang::get('item.import')]);
     }
 
     // Export as an excel file
@@ -56,14 +56,14 @@ class ItemController extends Controller
         
         if ($existingItem) {
             $existingItem->name = $request->item['name'] ?? $existingItem->name;
-            $existingItem->completed = $request->item['completed'] ? true : false;
-            $existingItem->completed_at = $request->item['completed'] ? Carbon::now() : null;
+            $existingItem->completed = $request->item['completed'] ?? false;
+            $existingItem->completed_at = $request->item['completed'] ?? false ? Carbon::now() : null;
             $existingItem->save();
 
             return $existingItem;
         }
 
-        return response()->json(['message' => Lang::get('item.item_not_found')], 404);
+        return response()->json(['message' => Lang::get('item.item_not_found')]);
     }
 
     // Delete an item
@@ -88,12 +88,14 @@ class ItemController extends Controller
         $item = Item::find($id);
 
         if ($item && $item->canApply('start')) {
+
             $item->apply('start');
             $item->save();
-            return response()->json(['message' => 'Item started successfully']);
+
+            return response()->json(['message' => Lang::get('item.start')]);
         }
 
-        return response()->json(['message' => 'Cannot start this item']);
+        return response()->json(['message' => Lang::get('item.start_error')]);
     }
 
     // Complete an item (transition from 'in_progress' to 'completed')
@@ -102,12 +104,14 @@ class ItemController extends Controller
         $item = Item::find($id);
 
         if ($item && $item->canApply('complete')) {
+
             $item->apply('complete');
             $item->save();
-            return response()->json(['message' => 'Item completed successfully']);
+
+            return response()->json(['message' => Lang::get('item.complete')]);
         }
 
-        return response()->json(['message' => 'Cannot complete this item']);
+        return response()->json(['message' => Lang::get('item.complete_error')]);
     }
 
     // Archive an item (transition from 'completed' to 'archived')
@@ -116,12 +120,14 @@ class ItemController extends Controller
         $item = Item::find($id);
 
         if ($item && $item->canApply('archive')) {
+
             $item->apply('archive');
             $item->save();
-            return response()->json(['message' => 'Item archived successfully']);
+
+            return response()->json(['message' => Lang::get('item.archive')]);
         }
 
-        return response()->json(['message' => 'Cannot archive this item']);
+        return response()->json(['message' => Lang::get('item.archive_error')]);
     }
 
     // Cancel an item (transition from 'new' or 'in_progress' to 'canceled')
@@ -130,12 +136,14 @@ class ItemController extends Controller
         $item = Item::find($id);
 
         if ($item && $item->canApply('cancel')) {
+
             $item->apply('cancel');
             $item->save();
-            return response()->json(['message' => 'Item canceled successfully']);
+
+            return response()->json(['message' => Lang::get('item.cancel')]);
         }
 
-        return response()->json(['message' => 'Cannot cancel this item']);
+        return response()->json(['message' => Lang::get('item.cancel_error')]);
     }
 
     // Restore an item (transition from 'archived' or 'canceled' to 'new')
@@ -144,12 +152,13 @@ class ItemController extends Controller
         $item = Item::find($id);
 
         if ($item && $item->canApply('restore')) {
+
             $item->apply('restore');
             $item->save();
-            return response()->json(['message' => 'Item restored successfully']);
+
+            return response()->json(['message' => Lang::get('item.restore')]);
         }
 
-        return response()->json(['message' => 'Cannot restore this item']);
+        return response()->json(['message' => Lang::get('item.restore_error')]);
     }
-
 }
