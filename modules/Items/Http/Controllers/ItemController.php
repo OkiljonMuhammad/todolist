@@ -9,23 +9,10 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Http\JsonResponse;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\ItemsImport;
 use App\Exports\ItemsExport;
 
 class ItemController extends Controller
 {   
-    // Import from excel file
-    public function import(Request $request)
-    {
-        $request->validate([
-            'file' => 'required|mimes:xlsx,xls,csv|max:2048',
-        ]);
-
-        Excel::import(new ItemsImport, $request->file('file'));
-
-        return response()->json(['message' => Lang::get('item.import')]);
-    }
-
     // Export as an excel file
     public function export()
     {

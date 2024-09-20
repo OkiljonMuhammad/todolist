@@ -1,12 +1,14 @@
 <?php
 
 use Modules\Items\Http\Controllers\ItemController;
+use Modules\Items\Http\Controllers\ImportFileController;
+use Modules\Items\Http\Controllers\ExportFileController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/item')->name('item.')->group(function () {
     Route::get('/', [ItemController::class, 'index'])->name('index');
-    Route::post('/import', [ItemController::class, 'import'])->name('import');
-    Route::get('/export', [ItemController::class, 'export'])->name('export');
+    Route::post('/import', ImportFileController::class)->name('import');
+    Route::get('/export', ExportFileController::class)->name('export');
     Route::post('/store', [ItemController::class, 'store'])->name('store');
     Route::put('/{id}', [ItemController::class, 'update'])->name('update');
     Route::delete('/{id}', [ItemController::class, 'destroy'])->name('destroy');

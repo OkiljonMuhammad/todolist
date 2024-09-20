@@ -2,6 +2,9 @@
 
 return [
     'import' => 'Items imported successfully',
+    'import_error' => 'File import failed!',
+    'export' => 'Items exported successfully',
+    'export_error' => 'File export failed!',
     'item_not_found' => 'Item not found',
     'item_deleted' => 'Item successfully deleted',
     'start' => 'Item started successfully',
