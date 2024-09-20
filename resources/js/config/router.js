@@ -1,12 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-// Import your components
 import LoginPage from '../vue/Authentication/Login/LoginPage.vue'
 import RegisterPage from '../vue/Authentication/Register/RegisterPage.vue'
 import HomePage from '../vue/Home/HomePage.vue'
 import TodoPage from '../vue/Todos/TodoPage.vue'
+import DashboardPage from '../vue/Dashboard/DashboardPage.vue'
 
-// Define routes
 const routes = [
   {
     path: '/login',
@@ -19,6 +18,10 @@ const routes = [
   {
     path: '/home',
     component: HomePage,
+  }, 
+  {
+    path: '/dashboard',
+    component: DashboardPage,
   },
   {
     path: '/todos',
@@ -27,7 +30,6 @@ const routes = [
   }
 ]
 
-// Create the router instance
 const router = createRouter({
   history: createWebHashHistory(),
   routes,

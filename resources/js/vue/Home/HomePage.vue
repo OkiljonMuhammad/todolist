@@ -5,7 +5,7 @@
         <ul>
           <li><router-link to="/login">Login</router-link></li>
           <li><router-link to="/register">Register</router-link></li>
-          <li><router-link to="/todos">Todos</router-link></li>
+          <li><router-link to="/dashboard">Dashboard</router-link></li>
         </ul>
       </nav>
   
@@ -16,9 +16,9 @@
   
         <!-- Quick Action Buttons -->
         <div class="action-buttons">
-          <router-link to="/login" class="btn">Go to Login</router-link>
-          <router-link to="/register" class="btn">Sign Up</router-link>
-          <router-link to="/todos" class="btn">View Todos</router-link>
+          <router-link to="/login" class="btn">Log in</router-link>
+          <router-link to="/register" class="btn">Sign up</router-link>
+          <router-link to="/dashboard" class="btn">View Dashboard</router-link>
         </div>
       </main>
     </div>
