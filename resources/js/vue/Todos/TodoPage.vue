@@ -1,4 +1,5 @@
 <template>
+   <router-link to="/home">Home</router-link>
     <div class="todoListContainer">
       <div class="heading">
         <locale-switcher id="lan"/>
@@ -11,7 +12,6 @@
       <list-view v-on:reloadList="fetchItems" />
     </div>
   </template>
-  
   <script>
   import { mapActions } from 'vuex';
   import ListView from './ListView.vue';

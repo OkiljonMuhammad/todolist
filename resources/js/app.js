@@ -1,6 +1,7 @@
 import './bootstrap';
 import { createApp } from 'vue';
 import App from './vue/app.vue';
+import router from './config/router.js'
 import store from './store/index.js';
 import i18n from './i18n'; 
 import './scss/styles.scss';
@@ -32,6 +33,7 @@ configure({
   validateOnInput: true, 
 });
 app.component('font-awesome-icon', FontAwesomeIcon)
+app.use(router)
 app.use(store);
 app.use(i18n);
 app.use(vuetify);

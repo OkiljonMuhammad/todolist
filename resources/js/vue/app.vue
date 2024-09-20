@@ -1,16 +1,13 @@
 <template>
-  <div>
-      <todo-page />
+  <div id="app">
+    <router-view />
   </div>
 </template>
 
 <script>
-import TodoPage from './Todos/TodoPage.vue';
-
 export default {
-  components: {
-    TodoPage
-  },
-};
+  name: 'App',
+}
 </script>
+
 
