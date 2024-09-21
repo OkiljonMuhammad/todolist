@@ -1,3 +1,22 @@
+// Dark mode style
+.dark-mode {
+  background-color: #2e2e2e;
+  color: #ffffff;
+}
+
+.dark-mode-button {
+  background-color: #444;
+  color: #eee;
+  position: absolute;
+  top: 24px;  
+  right: 10px; 
+  border: none;
+  width: 65px;
+  height: 26px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 // General container for the todo list
 .todoListContainer {
   width: 800px;
@@ -15,9 +34,10 @@
 }
 
 // Language switcher layout
-#lan {
-  display: flex;
-  justify-content: flex-end;
+.lan {
+  position: absolute;
+  top: 20px;
+  right:80px ;
 }
 
 // Add Item Form styles
@@ -117,12 +137,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 30px;
   border: 1px solid #0a0a0a;
   border-radius: 5px;
   background-color: #f7f7f7;
   color: #0a0a0a;
+  padding: 10px;
   font-size: 20px;
   cursor: pointer;
 }
@@ -341,7 +360,7 @@
 .enbutton {
   margin: 5px;
   width: 50px;
-  height: 30px;
+  height: 25px;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -355,7 +374,7 @@
 .uzbutton {
   margin: 5px;
   width: 50px;
-  height: 30px;
+  height: 25px;
   border: none;
   background-color: transparent;
   cursor: pointer;

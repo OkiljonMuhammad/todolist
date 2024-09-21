@@ -5,7 +5,8 @@ import apiUrls from '../config/api.js';
 const store = createStore({
     state: {
         // Store the list of items
-        items: [] 
+        items: [],
+        isDarkMode: false,
     },
     mutations: {
         // Set the entire list of items
@@ -26,7 +27,26 @@ const store = createStore({
         // Remove item by ID
         removeItem(state, itemId) {
             state.items = state.items.filter(item => item.id !== itemId); 
-        }
+        },
+
+        toggleDarkMode(state) {
+            state.isDarkMode = !state.isDarkMode;
+            localStorage.setItem('dark-mode', state.isDarkMode);
+            if (state.isDarkMode) {
+              document.body.classList.add('dark-mode');
+            } else {
+              document.body.classList.remove('dark-mode');
+            }
+        },
+
+        setDarkMode(state, payload) {
+            state.isDarkMode = payload;
+            if (payload) {
+              document.body.classList.add('dark-mode');
+            } else {
+              document.body.classList.remove('dark-mode');
+            }
+        },
     },
     actions: {
         // Fetch items from API and update store
@@ -106,7 +126,13 @@ const store = createStore({
               console.error('Error exporting Excel file:', error);
               throw error;
             });
-          }
+          },
+
+        initDarkMode({ commit }) {
+            const savedMode = localStorage.getItem('dark-mode');
+            commit('setDarkMode', savedMode === 'true');
+        
+        },
     },
 
 

@@ -1,14 +1,5 @@
 <template>
-    <div class="home-page">
-      <!-- Navigation Bar -->
-      <nav class="navbar">
-        <ul>
-          <li><router-link to="/login">Login</router-link></li>
-          <li><router-link to="/register">Register</router-link></li>
-          <li><router-link to="/dashboard">Dashboard</router-link></li>
-        </ul>
-      </nav>
-  
+    <div class="home-page">  
       <!-- Main Content Section -->
       <main class="content">
         <h1>Welcome to the Home Page</h1>
@@ -35,31 +26,6 @@
     font-family: Arial, sans-serif;
     padding: 20px;
     text-align: center;
-  }
-  
-  .navbar {
-    background-color: #333;
-    padding: 10px;
-  }
-  
-  .navbar ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .navbar ul li {
-    display: inline;
-    margin: 0 15px;
-  }
-  
-  .navbar ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .navbar ul li a:hover {
-    text-decoration: underline;
   }
   
   .content {

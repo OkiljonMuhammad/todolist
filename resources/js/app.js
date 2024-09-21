@@ -10,13 +10,10 @@ import _ from 'lodash';
 import moment from 'moment';
 import { defineRule, configure, Field, Form, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faCirclePlus, faFileCirclePlus, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
-import '@mdi/font/css/materialdesignicons.css';
-
-library.add(faCirclePlus, faFileCirclePlus, faPenToSquare, faTrash)
+import { faCirclePlus, faFileCirclePlus, faPenToSquare, faTrash, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
+library.add(faCirclePlus, faFileCirclePlus, faPenToSquare, faTrash, faMoon, faSun)
 
 const app = createApp(App);
 
