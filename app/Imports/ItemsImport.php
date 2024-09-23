@@ -4,6 +4,7 @@ namespace App\Imports;
 
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
+use Maatwebsite\Excel\Concerns\WithValidation;
 use Generator;
 use Modules\Items\Models\Item;
 
@@ -31,5 +32,12 @@ class ItemsImport implements ToCollection
         foreach ($rows as $row) {
             yield $row;
         }
+    }
+
+    public function rules(): array
+    {
+        return [
+            '0' => 'required|string',
+        ];
     }
 }

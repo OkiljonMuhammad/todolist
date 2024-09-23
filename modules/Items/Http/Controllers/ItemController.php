@@ -8,8 +8,6 @@ use Modules\Items\Models\Item;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Http\JsonResponse;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\ItemsExport;
 
 class ItemController extends Controller
 {  
@@ -19,12 +17,11 @@ class ItemController extends Controller
         return Item::orderBy('created_at', 'DESC')->get();
     }
 
-    public function store(Request $request): Item
+    public function store(Request $request, Item $newItem): Item
     {   
         $request->validate([
             'item.name' => 'required|string|max:255'
         ]);
-        $newItem = new Item;
         $newItem->name = $request->item['name'];
         $newItem->save();
 
