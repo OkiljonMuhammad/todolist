@@ -12,13 +12,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ItemsExport;
 
 class ItemController extends Controller
-{   
-    // Export as an excel file
-    public function export()
-    {
-        return Excel::download(new ItemsExport, 'todos.xlsx');
-    }
-
+{  
     // Get items
     public function index()
     {

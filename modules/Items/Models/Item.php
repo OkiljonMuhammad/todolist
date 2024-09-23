@@ -12,6 +12,12 @@ class Item extends Model
 {
     use HasFactory, Statable;
 
+    const STATUS_PENDING = 'pending';
+    const STATUS_IN_PROGRESS = 'in_progress';
+    const STATUS_COMPLETED = 'completed';
+    const STATUS_ARCHIVED = 'archived';
+    const STATUS_CANCELED = 'canceled';
+    
     protected $fillable = [
         'name',
         'completed',

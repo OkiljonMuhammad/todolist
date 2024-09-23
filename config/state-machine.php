@@ -1,38 +1,40 @@
 <?php
 
+use Modules\Items\Models\Item as ItemModel;
+
 return [
     'item_graph' => [
-        'class' => Modules\Items\Models\Item::class, 
-        'property_path' => 'status',  
+        'class' => ItemModel::class,  
+        'property_path' => 'status',
 
         'states' => [
-            'new',         
-            'in_progress', 
-            'completed',   
-            'archived',    
-            'canceled',    
+            ItemModel::STATUS_PENDING,       
+            ItemModel::STATUS_IN_PROGRESS,
+            ItemModel::STATUS_COMPLETED,
+            ItemModel::STATUS_ARCHIVED,
+            ItemModel::STATUS_CANCELED,
         ],
 
         'transitions' => [
             'start' => [
-                'from' => ['new'],
-                'to' => 'in_progress',
+                'from' => [ItemModel::STATUS_PENDING],
+                'to' => ItemModel::STATUS_IN_PROGRESS,
             ],
             'complete' => [
-                'from' => ['in_progress'],
-                'to' => 'completed',
+                'from' => [ItemModel::STATUS_IN_PROGRESS],
+                'to' => ItemModel::STATUS_COMPLETED,
             ],
             'archive' => [
-                'from' => ['completed'],
-                'to' => 'archived',
+                'from' => [ItemModel::STATUS_COMPLETED],
+                'to' => ItemModel::STATUS_ARCHIVED,
             ],
             'cancel' => [
-                'from' => ['new', 'in_progress'],
-                'to' => 'canceled',
+                'from' => [ItemModel::STATUS_PENDING, ItemModel::STATUS_IN_PROGRESS],
+                'to' => ItemModel::STATUS_CANCELED,
             ],
             'restore' => [
-                'from' => ['archived', 'canceled'],
-                'to' => 'new',
+                'from' => [ItemModel::STATUS_ARCHIVED, ItemModel::STATUS_CANCELED],
+                'to' => ItemModel::STATUS_PENDING,
             ],
         ],
     ],
