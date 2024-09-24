@@ -11,16 +11,6 @@ use Illuminate\Http\JsonResponse;
 
 class ItemController extends Controller
 {  
-    public function store(Request $request, Item $newItem): Item
-    {   
-        $request->validate([
-            'item.name' => 'required|string|max:255'
-        ]);
-        $newItem->name = $request->item['name'];
-        $newItem->save();
-
-        return $newItem;
-    }
     // Update an item
     public function update(Request $request, string $id)
     {

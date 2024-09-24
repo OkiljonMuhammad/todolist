@@ -7,9 +7,11 @@ use Illuminate\Support\ServiceProvider;
 use Modules\Items\Http\Actions\ImportFileAction;
 use Modules\Items\Http\Actions\ExportFileAction;
 use Modules\Items\Http\Actions\GetItemAction;
+use Modules\Items\Http\Actions\StoreItemAction;
 use Modules\Items\Http\Contracts\ImportFileInterface;
 use Modules\Items\Http\Contracts\ExportFileInterface;
 use Modules\Items\Http\Contracts\GetItemInterface;
+use Modules\Items\Http\Contracts\StoreItemInterface;
 
 class ItemServiceProvider extends ServiceProvider
 {
@@ -20,6 +22,8 @@ class ItemServiceProvider extends ServiceProvider
         $this->app->bind(ImportFileInterface::class, ImportFileAction::class);
         $this->app->bind(ExportFileInterface::class, ExportFileAction::class);
         $this->app->bind(GetItemInterface::class, GetItemAction::class);
+        $this->app->bind(StoreItemInterface::class, StoreItemAction::class);
+
 
 
     }
