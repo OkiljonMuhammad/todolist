@@ -8,8 +8,8 @@ use App\Imports\ItemsImport;
 
 class ImportFileAction implements ImportFileInterface
 {
-    public function import($file)
+    public function execute($file)
     {
-        Excel::import(new ItemsImport, $file);
+        Excel::import(new ItemsImport, $file->file('file'));
     }
 }

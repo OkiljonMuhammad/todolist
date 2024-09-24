@@ -14,7 +14,7 @@ class ImportFileController extends Controller
     public function __invoke(ImportFileRequest $request, ImportFileInterface $importFile)
     {   
         try {
-                $importFile->import($request->file('file'));
+                $importFile->execute($request);
                 return response()->json(['message' => Lang::get('item.import')]);
             } 
         catch (Exception $e) {

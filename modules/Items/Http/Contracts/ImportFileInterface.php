@@ -4,5 +4,5 @@ namespace Modules\Items\Http\Contracts;
 
 interface ImportFileInterface
 {
-    public function import($file);
+    public function execute($file);
 }

@@ -13,7 +13,7 @@ class ExportFileController extends Controller
     public function __invoke(ExportFileInterface $exportFile)
     {
         try {
-                return $exportFile->export();
+                return $exportFile->execute();
             } 
         catch (Exception $e) {
                 return response()->json([

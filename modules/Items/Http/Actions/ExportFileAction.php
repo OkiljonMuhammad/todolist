@@ -9,7 +9,7 @@ use App\Exports\ItemsExport;
 
 class ExportFileAction implements ExportFileInterface
 {
-    public function export()
+    public function execute()
     {
         return Excel::download(new ItemsExport, 'todos.xlsx');
     }
