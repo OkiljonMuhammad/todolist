@@ -6,8 +6,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Modules\Items\Http\Actions\ImportFileAction;
 use Modules\Items\Http\Actions\ExportFileAction;
+use Modules\Items\Http\Actions\GetItemAction;
 use Modules\Items\Http\Contracts\ImportFileInterface;
 use Modules\Items\Http\Contracts\ExportFileInterface;
+use Modules\Items\Http\Contracts\GetItemInterface;
 
 class ItemServiceProvider extends ServiceProvider
 {
@@ -17,6 +19,8 @@ class ItemServiceProvider extends ServiceProvider
     {
         $this->app->bind(ImportFileInterface::class, ImportFileAction::class);
         $this->app->bind(ExportFileInterface::class, ExportFileAction::class);
+        $this->app->bind(GetItemInterface::class, GetItemAction::class);
+
 
     }
 

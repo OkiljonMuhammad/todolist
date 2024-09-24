@@ -11,12 +11,6 @@ use Illuminate\Http\JsonResponse;
 
 class ItemController extends Controller
 {  
-    // Get items
-    public function index()
-    {
-        return Item::orderBy('created_at', 'DESC')->get();
-    }
-
     public function store(Request $request, Item $newItem): Item
     {   
         $request->validate([

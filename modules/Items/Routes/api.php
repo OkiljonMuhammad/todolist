@@ -3,10 +3,11 @@
 use Modules\Items\Http\Controllers\ItemController;
 use Modules\Items\Http\Controllers\ImportFileController;
 use Modules\Items\Http\Controllers\ExportFileController;
+use Modules\Items\Http\Controllers\GetItemController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/item')->name('item.')->group(function () {
-    Route::get('/', [ItemController::class, 'index'])->name('index');
+    Route::get('/', GetItemController::class)->name('index');
     Route::post('/import', ImportFileController::class)->name('import');
     Route::get('/export', ExportFileController::class)->name('export');
     Route::post('/store', [ItemController::class, 'store'])->name('store');
