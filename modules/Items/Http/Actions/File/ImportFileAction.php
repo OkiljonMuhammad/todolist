@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\Items\Http\Actions;
+namespace Modules\Items\Http\Actions\File;
 
-use Modules\Items\Http\Contracts\ImportFileInterface;
+use Modules\Items\Http\Contracts\File\ImportFileInterface;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ItemsImport;
 

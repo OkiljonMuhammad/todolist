@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Items\Http\Controllers;
+namespace Modules\Items\Http\Controllers\File;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Lang;
-use Modules\Items\Http\Contracts\ExportFileInterface;
+use Modules\Items\Http\Contracts\File\ExportFileInterface;
 use Exception;
 
 class ExportFileController extends Controller

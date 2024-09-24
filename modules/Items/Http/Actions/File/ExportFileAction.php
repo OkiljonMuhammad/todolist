@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\Items\Http\Actions;
+namespace Modules\Items\Http\Actions\File;
 
-use Modules\Items\Http\Contracts\ExportFileInterface;
+use Modules\Items\Http\Contracts\File\ExportFileInterface;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ItemsExport;
 

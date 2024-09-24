@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Items\Http\Contracts;
+namespace Modules\Items\Http\Contracts\File;
 
 interface ImportFileInterface
 {

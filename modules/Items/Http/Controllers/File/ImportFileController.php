@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\Items\Http\Controllers;
+namespace Modules\Items\Http\Controllers\File;
 
-use Modules\Items\Http\Requests\ImportFileRequest;
-use Modules\Items\Http\Contracts\ImportFileInterface;
+use Modules\Items\Http\Requests\File\ImportFileRequest;
+use Modules\Items\Http\Contracts\File\ImportFileInterface;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Lang;
 use Exception;

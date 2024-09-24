@@ -4,14 +4,14 @@ namespace Modules\Items\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Modules\Items\Http\Actions\ImportFileAction;
-use Modules\Items\Http\Actions\ExportFileAction;
-use Modules\Items\Http\Actions\GetItemAction;
-use Modules\Items\Http\Actions\StoreItemAction;
-use Modules\Items\Http\Contracts\ImportFileInterface;
-use Modules\Items\Http\Contracts\ExportFileInterface;
-use Modules\Items\Http\Contracts\GetItemInterface;
-use Modules\Items\Http\Contracts\StoreItemInterface;
+use Modules\Items\Http\Actions\File\ImportFileAction;
+use Modules\Items\Http\Actions\File\ExportFileAction;
+use Modules\Items\Http\Actions\Item\GetItemAction;
+use Modules\Items\Http\Actions\Item\StoreItemAction;
+use Modules\Items\Http\Contracts\File\ImportFileInterface;
+use Modules\Items\Http\Contracts\File\ExportFileInterface;
+use Modules\Items\Http\Contracts\Item\GetItemInterface;
+use Modules\Items\Http\Contracts\Item\StoreItemInterface;
 
 class ItemServiceProvider extends ServiceProvider
 {

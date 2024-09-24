@@ -1,10 +1,10 @@
 <?php
 
 use Modules\Items\Http\Controllers\ItemController;
-use Modules\Items\Http\Controllers\ImportFileController;
-use Modules\Items\Http\Controllers\ExportFileController;
-use Modules\Items\Http\Controllers\GetItemController;
-use Modules\Items\Http\Controllers\StoreItemController;
+use Modules\Items\Http\Controllers\File\ImportFileController;
+use Modules\Items\Http\Controllers\File\ExportFileController;
+use Modules\Items\Http\Controllers\Item\GetItemController;
+use Modules\Items\Http\Controllers\Item\StoreItemController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/item')->name('item.')->group(function () {
