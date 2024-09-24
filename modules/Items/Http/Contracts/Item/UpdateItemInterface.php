@@ -6,5 +6,5 @@ use Modules\Items\Models\Item;
 
 interface UpdateItemInterface
 {
-    public function execute();
+    public function execute($item, $id);
 }

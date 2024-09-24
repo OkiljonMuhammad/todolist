@@ -5,6 +5,7 @@ use Modules\Items\Http\Controllers\File\ImportFileController;
 use Modules\Items\Http\Controllers\File\ExportFileController;
 use Modules\Items\Http\Controllers\Item\GetItemController;
 use Modules\Items\Http\Controllers\Item\StoreItemController;
+use Modules\Items\Http\Controllers\Item\UpdateItemController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/item')->name('item.')->group(function () {
@@ -12,7 +13,7 @@ Route::prefix('/item')->name('item.')->group(function () {
     Route::post('/import', ImportFileController::class)->name('import');
     Route::get('/export', ExportFileController::class)->name('export');
     Route::post('/store', StoreItemController::class)->name('store');
-    Route::put('/{id}', [ItemController::class, 'update'])->name('update');
+    Route::put('/{id}', UpdateItemController::class)->name('update');
     Route::delete('/{id}', [ItemController::class, 'destroy'])->name('destroy');
     // Routes for state-machine
     Route::patch('/{id}/start', [ItemController::class, 'start'])->name('start');
