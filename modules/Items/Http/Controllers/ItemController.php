@@ -3,48 +3,13 @@
 namespace Modules\Items\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Modules\Items\Models\Item;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Http\JsonResponse;
 
 class ItemController extends Controller
 {  
-    // Update an item
-    public function update(Request $request, string $id)
-    {
-        $existingItem = Item::find($id);
-        
-        if ($existingItem) {
-            $existingItem->name = $request->item['name'] ?? $existingItem->name;
-            $existingItem->completed = $request->item['completed'] ?? false;
-            $existingItem->completed_at = $request->item['completed'] ?? false ? Carbon::now() : null;
-            $existingItem->save();
-
-            return $existingItem;
-        }
-
-        return response()->json(['message' => Lang::get('item.item_not_found')]);
-    }
-
-    // Delete an item
-    public function destroy(string $id): JsonResponse
-    {
-        $existingItem = Item::find($id);
-
-        if($existingItem)
-        {
-            $existingItem->delete();
-
-            return response()->json(['message' => Lang::get('item.item_deleted')]);
-        }
-
-        return response()->json(['message' => Lang::get('item.item_not_found')]);
-
-    }
-
-    // Start an item (transition from 'new' to 'in_progress')
+    // Start an item (transition from 'pending' to 'in_progress')
     public function start(string $id)
     {
         $item = Item::find($id);
@@ -92,7 +57,7 @@ class ItemController extends Controller
         return response()->json(['message' => Lang::get('item.archive_error')]);
     }
 
-    // Cancel an item (transition from 'new' or 'in_progress' to 'canceled')
+    // Cancel an item (transition from 'pending' or 'in_progress' to 'canceled')
     public function cancel(string $id)
     {
         $item = Item::find($id);
@@ -108,7 +73,7 @@ class ItemController extends Controller
         return response()->json(['message' => Lang::get('item.cancel_error')]);
     }
 
-    // Restore an item (transition from 'archived' or 'canceled' to 'new')
+    // Restore an item (transition from 'archived' or 'canceled' to 'pending')
     public function restore(string $id)
     {
         $item = Item::find($id);

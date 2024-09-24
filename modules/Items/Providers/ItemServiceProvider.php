@@ -9,11 +9,13 @@ use Modules\Items\Http\Actions\File\ExportFileAction;
 use Modules\Items\Http\Actions\Item\GetItemAction;
 use Modules\Items\Http\Actions\Item\StoreItemAction;
 use Modules\Items\Http\Actions\Item\UpdateItemAction;
+use Modules\Items\Http\Actions\Item\DestroyItemAction;
 use Modules\Items\Http\Contracts\File\ImportFileInterface;
 use Modules\Items\Http\Contracts\File\ExportFileInterface;
 use Modules\Items\Http\Contracts\Item\GetItemInterface;
 use Modules\Items\Http\Contracts\Item\StoreItemInterface;
 use Modules\Items\Http\Contracts\Item\UpdateItemInterface;
+use Modules\Items\Http\Contracts\Item\DestroyItemInterface;
 
 class ItemServiceProvider extends ServiceProvider
 {
@@ -26,6 +28,7 @@ class ItemServiceProvider extends ServiceProvider
         $this->app->bind(GetItemInterface::class, GetItemAction::class);
         $this->app->bind(StoreItemInterface::class, StoreItemAction::class);
         $this->app->bind(UpdateItemInterface::class, UpdateItemAction::class);
+        $this->app->bind(DestroyItemInterface::class, DestroyItemAction::class);
 
 
 
