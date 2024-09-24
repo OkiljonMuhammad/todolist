@@ -10,6 +10,6 @@ class ImportFileAction implements ImportFileInterface
 {
     public function execute($file)
     {
-        Excel::import(new ItemsImport, $file->file('file'));
+        Excel::import(new ItemsImport, $file);
     }
 }
