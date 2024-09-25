@@ -22,10 +22,10 @@ Route::prefix('/item')->name('item.')->group(function () {
     Route::put('/{id}', UpdateItemController::class)->name('update');
     Route::delete('/{id}', DestroyItemController::class)->name('destroy');
     // Routes for state-machine
-    Route::put('/{id}/start', StartItemController::class)->name('start');
-    Route::put('/{id}/complete', CompleteItemController::class)->name('complete');
-    Route::put('/{id}/archive', ArchiveItemController::class)->name('archive');
-    Route::put('/{id}/cancel', CancelItemController::class)->name('cancel');
-    Route::put('/{id}/restore', RestoreItemController::class)->name('restore');
+    Route::put('/start/{id}', StartItemController::class)->name('start');
+    Route::put('/complete/{id}', CompleteItemController::class)->name('complete');
+    Route::put('/archive/{id}', ArchiveItemController::class)->name('archive');
+    Route::put('/cancel/{id}', CancelItemController::class)->name('cancel');
+    Route::put('/restore/{id}', RestoreItemController::class)->name('restore');
 });
 

@@ -12,8 +12,30 @@ import { defineRule, configure, Field, Form, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faCirclePlus, faFileCirclePlus, faPenToSquare, faTrash, faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
-library.add(faCirclePlus, faFileCirclePlus, faPenToSquare, faTrash, faMoon, faSun)
+import { 
+  faCirclePlus, 
+  faFileCirclePlus, 
+  faPenToSquare, 
+  faTrash, 
+  faMoon, 
+  faSun,
+  faHourglassStart,
+  faXmark, 
+  faRectangleXmark,
+  faCheck,
+  faBoxArchive,
+  faRotateLeft} from '@fortawesome/free-solid-svg-icons'
+library.add(faCirclePlus, 
+  faFileCirclePlus, 
+  faPenToSquare, 
+  faTrash, 
+  faMoon, 
+  faSun, 
+  faHourglassStart,
+  faRectangleXmark,
+  faCheck, 
+  faBoxArchive,
+  faRotateLeft)
 
 const app = createApp(App);
 

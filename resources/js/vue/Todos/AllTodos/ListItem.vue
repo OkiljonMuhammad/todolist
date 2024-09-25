@@ -1,12 +1,7 @@
 <template>
   <div>
     <div class="item">
-      <input 
-        type="checkbox"
-        :checked="item.completed"
-        @change="updateCheck"
-        v-model="item.completed" />
-      <span :class="['itemText', { completed: item.completed }]">
+      <span class="itemText">
         {{ item.name }}
       </span>
       <button @click="openEditModal" class="pen">
@@ -56,12 +51,13 @@ export default {
   },
   methods: {
     ...mapActions(['deleteItem', 'updateItem']),
-    updateCheck() {
-      this.$store.dispatch('updateItem', this.item).then(() => {
-        this.$emit('itemChanged');
-      }).catch(error => {
+    async updateCheck() {
+      try {
+          await this.$store.dispatch('updateItem', this.item);
+          this.$emit('itemChanged');
+      } catch(error) {
         console.error(error);
-      });
+      }
     },
     openDeleteModal() {
       this.deleteModal = true;
@@ -69,13 +65,14 @@ export default {
     closeDeleteModal() {
       this.deleteModal = false;
     },
-    removeItem() {
-      this.deleteItem(this.item.id).then(() => {
-        this.$emit('itemChanged');
-        this.closeDeleteModal();
-      }).catch(error => {
+    async removeItem() {
+      try {
+          await this.deleteItem(this.item.id);
+          this.$emit('itemChanged');
+          this.closeDeleteModal();
+      } catch(error) {
         console.error(error);
-      });
+      }
     },
     openEditModal() {
       this.showModal = true;
@@ -84,16 +81,18 @@ export default {
     closeEditModal() {
       this.showModal = false;
     },
-    saveEdit() {
-      if (this.editName.trim() !== '') {
-        this.item.name = this.editName.trim();
-        this.updateItem(this.item).then(() => {
+    async saveEdit() {
+      try {
+        if (this.editName.trim() !== '') 
+        {
+          this.item.name = this.editName.trim();
+          await this.updateItem(this.item)
           this.$emit('itemChanged');
           this.closeEditModal(); 
-        }).catch(error => {
+        }
+      } catch(error) {
           console.error(error);
-        });
-      }
+      };
     }
   }
 };

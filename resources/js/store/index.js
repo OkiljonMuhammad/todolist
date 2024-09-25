@@ -85,6 +85,46 @@ const store = createStore({
                 console.error('Error deleting item:', error); 
             }
         },
+        // Start item
+        async startItem({ commit }, itemId) {
+            try {
+                await axios.put(apiUrls.start(itemId));
+            } catch (error) {
+                console.error('Error starting item:', error); 
+            }
+        },
+        // Complete item
+        async completeItem({ commit }, itemId) {
+            try {
+                await axios.put(apiUrls.complete(itemId));
+            } catch (error) {
+                console.error('Error completing item:', error); 
+            }
+        },
+        // Archive item
+        async archiveItem({ commit }, itemId) {
+            try {
+                await axios.put(apiUrls.archive(itemId));
+            } catch (error) {
+                console.error('Error archiving item:', error); 
+            }
+        },
+        // Cancel item
+        async cancelItem({ commit }, itemId) {
+            try {
+                await axios.put(apiUrls.cancel(itemId));
+            } catch (error) {
+                console.error('Error canceling item:', error); 
+            }
+        },
+        // Restore item
+        async restoreItem({ commit }, itemId) {
+            try {
+                await axios.put(apiUrls.restore(itemId));
+            } catch (error) {
+                console.error('Error restoring item:', error); 
+            }
+        },
         // Upload excel file
         async uploadExcelFile({ commit }, formData) {
             try {

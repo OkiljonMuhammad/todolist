@@ -24,14 +24,14 @@
           in progress
         </button>
         <button 
-          @click="setActive('canceled')" 
-          :class="{ active: currentComponent === 'CanceledItemView' }">
-          canceled
-        </button>
-        <button 
           @click="setActive('completed')" 
           :class="{ active: currentComponent === 'CompletedItemView' }">
           completed
+        </button>
+        <button 
+          @click="setActive('canceled')" 
+          :class="{ active: currentComponent === 'CanceledItemView' }">
+          canceled
         </button>
         <button 
           @click="setActive('archived')" 

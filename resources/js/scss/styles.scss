@@ -110,6 +110,7 @@
   border: 0px;
   outline: none;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .cancel-add-button {
@@ -120,6 +121,7 @@
   outline: none;
   margin-top: 15px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 // Upload Excel File Modal Styles
@@ -200,6 +202,7 @@
   border: 0px;
   outline: none;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .cancel-upload-button {
@@ -210,6 +213,7 @@
   outline: none;
   margin-top: 15px;
   margin-left: 10px;
+  cursor: pointer;
 }
 // List Item styles
 .completed {
@@ -233,6 +237,7 @@
   border: none;
   color: #ff0000;
   outline: none;
+  cursor: pointer;
 }
 
 .pen {
@@ -240,6 +245,33 @@
   border: none;
   color: #00ff00;
   outline: none;
+  cursor: pointer;
+
+}
+
+.hourglass {
+  background: #009999;
+  border: none;
+  color: #fbfbf9;
+  outline: none;
+  cursor: pointer;
+}
+
+.xmark {
+  background: #009999;
+  border: none;
+  color: #f7dc09;
+  outline: none;
+  cursor: pointer;
+
+}
+.check {
+  background: #009999;
+  border: none;
+  color: #0931f7;
+  outline: none;
+  cursor: pointer;
+
 }
 // Edit Modal styles
 .edit-modal-overlay {
@@ -287,6 +319,7 @@
   border: 0px;
   outline: none;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .cancel-button {
@@ -297,6 +330,7 @@
   outline: none;
   margin-top: 15px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 // Delete Modal styles
@@ -337,6 +371,7 @@
   border: 0px;
   outline: none;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .cancel-detele-button {
@@ -347,6 +382,7 @@
   outline: none;
   margin-top: 15px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 // List View styles

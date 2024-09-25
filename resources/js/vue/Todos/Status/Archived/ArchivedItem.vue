@@ -1,18 +1,16 @@
 <template>
   <div>
     <div class="item">
-      <input 
-        type="checkbox"
-        :checked="item.completed"
-        @change="updateCheck"
-        v-model="item.completed" />
-      <span :class="['itemText', { completed: item.completed }]">
+      <span class="itemText">
         {{ item.name }}
       </span>
-      <button @click="openEditModal" class="pen">
+      <button @click="openEditModal" class="pen" title="edit">
         <font-awesome-icon icon="pen-to-square" />
       </button>
-      <button @click="openDeleteModal" class="trashcan">
+      <button @click="restore" class="check" title="restart">
+        <font-awesome-icon icon="rotate-left" />
+      </button>
+      <button @click="openDeleteModal" class="trashcan" title="delete">
         <font-awesome-icon icon="trash" />
       </button>
     </div>
@@ -42,60 +40,72 @@
   </div>
 </template>
   
-  <script>
-  import { mapActions } from 'vuex';
-  
-  export default {
-    props: ['item'],
-    data() {
-      return {
-        deleteModal: false,
-        showModal: false,
-        editName: this.item.name
-      };
-    },
-    methods: {
-      ...mapActions(['deleteItem', 'updateItem']),
-      updateCheck() {
-        this.$store.dispatch('updateItem', this.item).then(() => {
+<script>
+import { mapActions } from 'vuex';
+
+export default {
+  props: ['item'],
+  data() {
+    return {
+      deleteModal: false,
+      showModal: false,
+      editName: this.item.name
+    };
+  },
+  methods: {
+    ...mapActions(['deleteItem', 'updateItem', 'restoreItem',]),
+    async updateCheck() {
+      try {
+          await this.$store.dispatch('updateItem', this.item);
           this.$emit('itemChanged');
-        }).catch(error => {
-          console.error(error);
-        });
-      },
-      openDeleteModal() {
-        this.deleteModal = true;
-      },
-      closeDeleteModal() {
-        this.deleteModal = false;
-      },
-      removeItem() {
-        this.deleteItem(this.item.id).then(() => {
+      } catch(error) {
+        console.error(error);
+      }
+    },
+    openDeleteModal() {
+      this.deleteModal = true;
+    },
+    closeDeleteModal() {
+      this.deleteModal = false;
+    },
+    async removeItem() {
+      try {
+          await this.deleteItem(this.item.id);
           this.$emit('itemChanged');
           this.closeDeleteModal();
-        }).catch(error => {
-          console.error(error);
-        });
-      },
-      openEditModal() {
-        this.showModal = true;
-        this.editName = this.item.name; 
-      },
-      closeEditModal() {
-        this.showModal = false;
-      },
-      saveEdit() {
-        if (this.editName.trim() !== '') {
-          this.item.name = this.editName.trim();
-          this.updateItem(this.item).then(() => {
-            this.$emit('itemChanged');
-            this.closeEditModal(); 
-          }).catch(error => {
-            console.error(error);
-          });
-        }
+      } catch(error) {
+        console.error(error);
       }
-    }
-  };
-  </script>
+    },
+    openEditModal() {
+      this.showModal = true;
+      this.editName = this.item.name; 
+    },
+    closeEditModal() {
+      this.showModal = false;
+    },
+    async saveEdit() {
+      try {
+        if (this.editName.trim() !== '') 
+        {
+          this.item.name = this.editName.trim();
+          await this.updateItem(this.item)
+          this.$emit('itemChanged');
+          this.closeEditModal(); 
+        }
+      } catch(error) {
+          console.error(error);
+      };
+    },
+    async restore() {
+      try {
+        await this.restoreItem(this.item.id);
+        this.$emit('itemChanged');
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  }
+};
+</script>
   
