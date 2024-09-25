@@ -1,12 +1,12 @@
 <template>
-    <div class="export-container">
-      <div class="exportFile">
-        <button @click="exportFile" class="file-download">
-          {{$t('export-file')}}
-        </button>
-      </div>
+  <div class="export-container">
+    <div class="exportFile">
+      <button @click="exportFile" class="file-download">
+        {{$t('export-file')}}
+      </button>
     </div>
-  </template>
+  </div>
+</template>
   
   <script>
   export default {

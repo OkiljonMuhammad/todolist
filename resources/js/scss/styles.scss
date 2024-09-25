@@ -403,3 +403,34 @@
   cursor: pointer;
   border-radius: 5px;
 }
+
+.file-download:hover {
+  background-color: lightgreen;
+  color: #111111;
+}
+//Status 
+.status-container {
+  display: flex;
+  justify-content: center;
+}
+
+.status-container button {
+  padding: 5px;
+  color: white;
+  background-color: #4caf50; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 5px; 
+}
+
+.status-container button:hover {
+  background-color: lightgreen;
+  color: #111111;
+}
+
+.status-container button.active {
+  background-color: #22478b; 
+  color: white;
+}

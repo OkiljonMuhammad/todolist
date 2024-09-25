@@ -96,6 +96,7 @@ const store = createStore({
                 console.error('Error uploading Excel file:', error);
             }
         },
+        
         async exportExcelFile() {
             try {
                 const response = await axios({
@@ -122,10 +123,8 @@ const store = createStore({
             } catch (error) {
                 console.error('Error initializing dark mode:', error);
             }
-        
         },
     },
-
 
     // Get the list of items from the store
     getters: {

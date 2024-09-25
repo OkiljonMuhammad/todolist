@@ -20,9 +20,9 @@
     </div>
   </div>
   </template>
-  
+
   <script>
-export default {
+  export default {
   data() {
     return {
       uploadModal: false,
