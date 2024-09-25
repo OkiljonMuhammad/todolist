@@ -7,6 +7,11 @@ use Modules\Items\Http\Controllers\Item\GetItemController;
 use Modules\Items\Http\Controllers\Item\StoreItemController;
 use Modules\Items\Http\Controllers\Item\UpdateItemController;
 use Modules\Items\Http\Controllers\Item\DestroyItemController;
+use Modules\Items\Http\Controllers\Status\StartItemController;
+use Modules\Items\Http\Controllers\Status\CompleteItemController;
+use Modules\Items\Http\Controllers\Status\ArchiveItemController;
+use Modules\Items\Http\Controllers\Status\CancelItemController;
+use Modules\Items\Http\Controllers\Status\RestoreItemController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/item')->name('item.')->group(function () {
@@ -17,10 +22,10 @@ Route::prefix('/item')->name('item.')->group(function () {
     Route::put('/{id}', UpdateItemController::class)->name('update');
     Route::delete('/{id}', DestroyItemController::class)->name('destroy');
     // Routes for state-machine
-    Route::patch('/{id}/start', [ItemController::class, 'start'])->name('start');
-    Route::patch('/{id}/complete', [ItemController::class, 'complete'])->name('complete');
-    Route::patch('/{id}/archive', [ItemController::class, 'archive'])->name('archive');
-    Route::patch('/{id}/cancel', [ItemController::class, 'cancel'])->name('cancel');
-    Route::patch('/{id}/restore', [ItemController::class, 'restore'])->name('restore');
+    Route::put('/{id}/start', StartItemController::class)->name('start');
+    Route::put('/{id}/complete', CompleteItemController::class)->name('complete');
+    Route::put('/{id}/archive', ArchiveItemController::class)->name('archive');
+    Route::put('/{id}/cancel', CancelItemController::class)->name('cancel');
+    Route::put('/{id}/restore', RestoreItemController::class)->name('restore');
 });
 

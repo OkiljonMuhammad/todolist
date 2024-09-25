@@ -10,12 +10,22 @@ use Modules\Items\Http\Actions\Item\GetItemAction;
 use Modules\Items\Http\Actions\Item\StoreItemAction;
 use Modules\Items\Http\Actions\Item\UpdateItemAction;
 use Modules\Items\Http\Actions\Item\DestroyItemAction;
+use Modules\Items\Http\Actions\Status\StartItemAction;
+use Modules\Items\Http\Actions\Status\CompleteItemAction;
+use Modules\Items\Http\Actions\Status\ArchiveItemAction;
+use Modules\Items\Http\Actions\Status\CancelItemAction;
+use Modules\Items\Http\Actions\Status\RestoreItemAction;
 use Modules\Items\Http\Contracts\File\ImportFileInterface;
 use Modules\Items\Http\Contracts\File\ExportFileInterface;
 use Modules\Items\Http\Contracts\Item\GetItemInterface;
 use Modules\Items\Http\Contracts\Item\StoreItemInterface;
 use Modules\Items\Http\Contracts\Item\UpdateItemInterface;
 use Modules\Items\Http\Contracts\Item\DestroyItemInterface;
+use Modules\Items\Http\Contracts\Status\StartItemInterface;
+use Modules\Items\Http\Contracts\Status\CompleteItemInterface;
+use Modules\Items\Http\Contracts\Status\ArchiveItemInterface;
+use Modules\Items\Http\Contracts\Status\CancelItemInterface;
+use Modules\Items\Http\Contracts\Status\RestoreItemInterface;
 
 class ItemServiceProvider extends ServiceProvider
 {
@@ -29,6 +39,11 @@ class ItemServiceProvider extends ServiceProvider
         $this->app->bind(StoreItemInterface::class, StoreItemAction::class);
         $this->app->bind(UpdateItemInterface::class, UpdateItemAction::class);
         $this->app->bind(DestroyItemInterface::class, DestroyItemAction::class);
+        $this->app->bind(StartItemInterface::class, StartItemAction::class);
+        $this->app->bind(CompleteItemInterface::class, CompleteItemAction::class);
+        $this->app->bind(ArchiveItemInterface::class, ArchiveItemAction::class);
+        $this->app->bind(CancelItemInterface::class, CancelItemAction::class);
+        $this->app->bind(RestoreItemInterface::class, RestoreItemAction::class);
 
 
 
