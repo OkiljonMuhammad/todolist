@@ -23,6 +23,7 @@ class Item extends Model
         'completed',
         'created_at',
         'status',
+        'user_id',
     ];
     
     protected $casts = [

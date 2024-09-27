@@ -7,6 +7,7 @@ use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Generator;
 use Modules\Items\Models\Item;
+use Illuminate\Support\Facades\Auth;
 
 class ItemsImport implements ToCollection
 {
@@ -22,6 +23,7 @@ class ItemsImport implements ToCollection
                 'name' => $data[0],
                 'created_at' => now(),
                 'updated_at' => now(),
+                'user_id' => Auth::id()
             ]);
         }
     }

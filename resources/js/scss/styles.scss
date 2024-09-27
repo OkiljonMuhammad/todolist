@@ -1,7 +1,6 @@
 // Dark mode style
 .dark-mode {
   background-color: #2e2e2e;
-  color: #ffffff;
 }
 
 .dark-mode-button {
@@ -469,4 +468,65 @@
 .status-container button.active {
   background-color: #22478b; 
   color: white;
+}
+
+//Styles for the login-register container
+.login-register {
+  width: 300px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #11d6e0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+//Login-register form labels
+.login-register label {
+  display: block;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+//Login-register input fields
+.login-register input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+//Login-register submit button
+.login-register button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-register button:hover {
+  background-color: #0056b3;
+}
+
+//Login-register router-link
+.login-register a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-register a:hover {
+  text-decoration: underline;
+}
+
+//Login-register paragraph
+.login-register p {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
 }

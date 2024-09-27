@@ -32,9 +32,9 @@ class UserServiceProvider extends ServiceProvider
         }
 
         // Load module-specific views
-        // $this->loadViewsFrom(__DIR__.'/../Resources/Views', 'users');
+        $this->loadViewsFrom(__DIR__.'/../Resources/Views', 'users');
 
         // Load module-specific migrations
-        // $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
     }
 }

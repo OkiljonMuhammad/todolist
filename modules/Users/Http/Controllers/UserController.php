@@ -28,25 +28,29 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return response()->json(['message' => Lang::get('user.register')]);
+        $token = $user->createToken('auth_token', ['server:update'])->plainTextToken;
+
+        return response()->json(['message' => Lang::get('user.register'),
+            'access_token' => $token,
+            'token_type' => 'Bearer',]);
     }
 
     // Login an existing user.
     public function login(Request $request)
-    {
+    {   
         $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
         ]);
 
         if (!Auth::attempt($request->only('email', 'password'))) {
-            throw ValidationException::withMessages([
-                'email' => [Lang::get('user.email_error')],
-            ]);
+            return response()->json([
+                'message' => 'The provided credentials are incorrect.'
+            ],401);
         }
 
         $user = Auth::user();
-        $token = $user->createToken('auth_token')->plainTextToken;
+        $token = $user->createToken('auth_token', ['server:update'])->plainTextToken;
 
         return response()->json([
             'access_token' => $token,
@@ -57,14 +61,22 @@ class UserController extends Controller
     // Logout the authenticated user.
     public function logout(Request $request)
     {
-        $request->user()->currentAccessToken()->delete();
+        if ($request->user() && $request->user()->currentAccessToken()) {
+            $request->user()->currentAccessToken()->delete();
+        }
 
         return response()->json(['message' => Lang::get('user.logout')]);
     }
     
     // Get the authenticated user.
     public function user(Request $request)
-    {
-        return response()->json($request->user());
+{
+    $user = $request->user();
+    if (!$user) {
+        return response()->json(['message' => 'user.unauthorized']);
     }
+
+    return response()->json($user);
+}
+
 }

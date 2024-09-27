@@ -2,11 +2,18 @@ import { createStore } from 'vuex';
 import axios from 'axios';
 import apiUrls from '../config/api.js';
 
+// Set the default Authorization header if the token exists
+const token = localStorage.getItem('token');
+if (token) {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+}
+
 const store = createStore({
     state: {
         // Store the list of items
         items: [],
         isDarkMode: false,
+        token: token || null,
     },
     mutations: {
         // Set the entire list of items
@@ -47,6 +54,17 @@ const store = createStore({
               document.body.classList.remove('dark-mode');
             }
         },
+        setToken(state, token) {
+            state.token = token;
+            localStorage.setItem('token', token);
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        },
+        
+        clearToken(state) {
+            state.token = null;
+            localStorage.removeItem('token');
+            delete axios.defaults.headers.common['Authorization'];
+        },
     },
     actions: {
         // Fetch items from API and update store
@@ -61,7 +79,11 @@ const store = createStore({
         // Add new item to store
         async createItem({ commit }, item) {
             try {
-                const response = await axios.post(apiUrls.storeItem, { item });
+                const response = await axios.post(apiUrls.storeItem, { item },
+                    {headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}` // Add the token to the header
+                      }
+            });
                 commit('addItem', response.data); 
             } catch (error) {
                 console.error('Error adding item:', error); 
@@ -128,7 +150,7 @@ const store = createStore({
         // Upload excel file
         async uploadExcelFile({ commit }, formData) {
             try {
-                const respose = await axios.post(apiUrls.importItem, formData, {
+                const response = await axios.post(apiUrls.importItem, formData, {
                     headers: {'Content-Type': 'multipart/form-data'}
                 });
                 commit('setItems', response.data); 
@@ -164,11 +186,52 @@ const store = createStore({
                 console.error('Error initializing dark mode:', error);
             }
         },
+        //Register
+        async registerUser({commit}, userData) {
+            try {
+                const response = await axios.post(apiUrls.registerUser, {
+                    name: userData.name,
+                    email: userData.email,
+                    password: userData.password,
+                    password_confirmation: userData.password_confirmation
+                });
+                commit('setToken', response.data.access_token);
+                return true;
+            } catch (error) {
+                console.error('Registration error:', error);
+                throw new Error('Error during registration');
+            }
+        },
+        //Login
+        async loginUser({commit}, credentials) {
+            try {
+                const response = await axios.post(apiUrls.loginUser, {
+                    email: credentials.email,
+                    password: credentials.password,
+                });
+                commit('setToken', response.data.access_token);
+                return true;
+            } catch (error) {
+                console.error('Login error:', error);
+                throw new Error('Invalid credentials');
+            }
+        },
+        //Logout
+        async logoutUser({commit}) {
+            try {
+                await axios.post(apiUrls.logoutUser);
+            } catch (error) {
+                console.error('Logout error:', error);
+            }
+            commit('clearToken');
+        }
+
     },
 
     // Get the list of items from the store
     getters: {
-        items: state => state.items 
+        items: state => state.items,
+        isAuthenticated: state => !!state.token, 
     }
 });
 

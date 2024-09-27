@@ -1,5 +1,6 @@
 <template>
   <router-link to="/home">Home</router-link>
+  <router-link to="/dashboard">Dashboard</router-link>
   <div class="todoListContainer">
     <div class="heading">
       <h1 id="title">{{ $t('todoList') }}</h1>

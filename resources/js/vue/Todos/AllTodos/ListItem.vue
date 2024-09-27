@@ -4,10 +4,10 @@
       <span class="itemText">
         {{ item.name }}
       </span>
-      <button @click="openEditModal" class="pen">
+      <button @click="openEditModal" class="pen" title="edit">
         <font-awesome-icon icon="pen-to-square" />
       </button>
-      <button @click="openDeleteModal" class="trashcan">
+      <button @click="openDeleteModal" class="trashcan" title="delete">
         <font-awesome-icon icon="trash" />
       </button>
     </div>
