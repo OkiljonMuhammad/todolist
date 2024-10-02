@@ -4,11 +4,17 @@
   <div class="todoListContainer">
     <div class="heading">
       <h1 id="title">{{ $t('todoList') }}</h1>
+      <create-item-category />
       <add-item-form v-on:reloadList="fetchItems" />
       <upload-excel-file />
       <export-excel-file />
 
       <div class="status-container">
+        <button 
+          @click="setActive('byCategory')" 
+          :class="{ active: currentComponent === 'CategoryView' }">
+          by category
+        </button>
         <button 
           @click="setActive('getAll')" 
           :class="{ active: currentComponent === 'ListView' }">
@@ -56,6 +62,8 @@ import InProgressItemView from './Status/InProgress/InProgressItemView.vue';
 import CanceledItemView from './Status/Canceled/CanceledItemView.vue';
 import CompletedItemView from './Status/Completed/CompletedItemView.vue';
 import ArchivedItemView from './Status/Archived/ArchivedItemView.vue';
+import CreateItemCategory from './CreateItemCategory.vue';
+import CategoryView from './ByCategory/CategoryView.vue';
 
 export default {
   data() {
@@ -73,13 +81,18 @@ export default {
     CanceledItemView,
     CompletedItemView,
     ArchivedItemView,
+    CreateItemCategory,
+    CategoryView
   },
   methods: {
     ...mapActions(['fetchItems']),
     
     setActive(status) {
       switch (status) {
-        case 'getAll':
+        case 'byCategory':
+          this.currentComponent = 'CategoryView';
+          break;
+          case 'getAll':
           this.currentComponent = 'ListView';
           break;
         case 'pending':

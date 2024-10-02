@@ -1,7 +1,7 @@
 {
     "welcome": "Welcome",
     "todoList": "Todo List",
-    "placeholder": "Create todo item here",
+    "placeholder": "Type todo item here",
     "EditItem": "Edit",
     "SaveEdit": "Save",
     "CancelEdit": "Cancel",
@@ -16,10 +16,15 @@
     "cancel-upload": "Cancel",
     "choose-file": "Choose",
     "upload-file": "upload",
-    "add-note": "create",
+    "add-note": "todo",
     "export-file": "download",
     "required":"This field is required",
-    "invalid_email": "Invalid email"
+    "invalid_email": "Invalid email",
+    "add-category": "category",
+    "addCategoryTitle": "Add Category",
+    "category-placeholder": "Type category name here"
+
+
 
   }
   

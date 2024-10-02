@@ -16,6 +16,9 @@ const apiUrls = {
     registerUser: '/api/user/register',
     loginUser: '/api/user/login',
     logoutUser: '/api/user/logout',
+
+    fetchCategories: '/api/item/category',
+    fetchByCategory: '/api/item/bycategory'
 };
 
 export default apiUrls;

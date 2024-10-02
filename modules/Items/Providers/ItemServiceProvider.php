@@ -7,6 +7,8 @@ use Illuminate\Support\ServiceProvider;
 use Modules\Items\Http\Actions\File\ImportFileAction;
 use Modules\Items\Http\Actions\File\ExportFileAction;
 use Modules\Items\Http\Actions\Item\GetItemAction;
+use Modules\Items\Http\Actions\Item\GetCategoryAction;
+use Modules\Items\Http\Actions\Item\GetByCategoryAction;
 use Modules\Items\Http\Actions\Item\StoreItemAction;
 use Modules\Items\Http\Actions\Item\UpdateItemAction;
 use Modules\Items\Http\Actions\Item\DestroyItemAction;
@@ -18,6 +20,8 @@ use Modules\Items\Http\Actions\Status\RestoreItemAction;
 use Modules\Items\Http\Contracts\File\ImportFileInterface;
 use Modules\Items\Http\Contracts\File\ExportFileInterface;
 use Modules\Items\Http\Contracts\Item\GetItemInterface;
+use Modules\Items\Http\Contracts\Item\GetCategoryInterface;
+use Modules\Items\Http\Contracts\Item\GetByCategoryInterface;
 use Modules\Items\Http\Contracts\Item\StoreItemInterface;
 use Modules\Items\Http\Contracts\Item\UpdateItemInterface;
 use Modules\Items\Http\Contracts\Item\DestroyItemInterface;
@@ -44,6 +48,8 @@ class ItemServiceProvider extends ServiceProvider
         $this->app->bind(ArchiveItemInterface::class, ArchiveItemAction::class);
         $this->app->bind(CancelItemInterface::class, CancelItemAction::class);
         $this->app->bind(RestoreItemInterface::class, RestoreItemAction::class);
+        $this->app->bind(GetCategoryInterface::class, GetCategoryAction::class);
+        $this->app->bind(GetByCategoryInterface::class, GetByCategoryAction::class);
 
 
 

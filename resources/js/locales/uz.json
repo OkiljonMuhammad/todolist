@@ -1,7 +1,7 @@
 {
     "welcome": "Xush kelibsiz",
     "todoList": "Eslatmalar ro'yxati",
-    "placeholder": "Eslatma yarating",
+    "placeholder": "Eslatmani kiriting",
     "EditItem": "O'zgartirish",
     "SaveEdit": "Saqlash",
     "CancelEdit": "Bekor qilish",
@@ -16,10 +16,15 @@
     "cancel-upload": "Bekor qilish",
     "choose-file": "Tanlang",
     "upload-file": "yuklash",
-    "add-note": "yaratish",
+    "add-note": "eslatma",
     "export-file": "eksport",
     "required":"Bu maydonni to'ldirish majburiy",
-    "invalid_email": "Noto'g'ri elektron pochta manzili"
+    "invalid_email": "Noto'g'ri elektron pochta manzili",
+    "add-category": "kategoriya",
+    "addCategoryTitle": "Kategoriya qo'shish",
+    "category-placeholder": "Kategoriya nomini kiriting"
+
+
   }
   
   

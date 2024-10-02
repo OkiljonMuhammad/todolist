@@ -11,6 +11,7 @@ class ItemValidateRequest extends FormRequest
     {
         return [
             'item.name' => 'required|string|max:255',
+            'item.parent_id' =>'nullable|exists:items,id'
         ];
     }
 

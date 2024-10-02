@@ -6,5 +6,5 @@ use Modules\Items\Models\Item;
 
 interface StoreItemInterface
 {
-    public function execute($itemName);
+    public function execute($item);
 }

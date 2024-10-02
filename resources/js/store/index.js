@@ -12,17 +12,19 @@ const store = createStore({
     state: {
         // Store the list of items
         items: [],
+        categories: [],
+        byCategory: [],
         isDarkMode: false,
         token: token || null,
     },
     mutations: {
         // Set the entire list of items
         setItems(state, items) {
-            state.items = items; 
+            state.items = items;
         },
         // Add a new item to the list
         addItem(state, item) {
-            state.items.push(item); 
+            state.items.push(item);
         },
         // Update the item in the list
         updateItem(state, updatedItem) {
@@ -35,7 +37,19 @@ const store = createStore({
         removeItem(state, itemId) {
             state.items = state.items.filter(item => item.id !== itemId); 
         },
-
+         // Set the entire list of categories
+         setCategories(state, categories) {
+            state.categories = categories; 
+        },
+        // Add a new item to the list
+        addCategory(state, category) {
+            state.categories.push(category); 
+        },
+        // Set by category
+        setByCategory(state, byCategory) {
+            state.byCategory = byCategory; 
+        },
+        // Add a new item to the list
         toggleDarkMode(state) {
             state.isDarkMode = !state.isDarkMode;
             localStorage.setItem('dark-mode', state.isDarkMode);
@@ -75,6 +89,22 @@ const store = createStore({
             } catch (error) {
                 console.error('Error fetching items:', error); 
             }
+        },// Fetch categories from API and update store
+        async fetchCategories({ commit }) {
+            try {
+                const response = await axios.get(apiUrls.fetchCategories);
+                commit('setCategories', response.data); 
+            } catch (error) {
+                console.error('Error fetching categories:', error); 
+            }
+        },
+        async fetchByCategory({ commit }) {
+            try {
+                const response = await axios.get(apiUrls.fetchByCategory);
+                commit('setByCategory', response.data); 
+            } catch (error) {
+                console.error('Error fetching by category:', error); 
+            }
         },
         // Add new item to store
         async createItem({ commit }, item) {
@@ -88,6 +118,18 @@ const store = createStore({
             } catch (error) {
                 console.error('Error adding item:', error); 
             }
+        },// Add new category to store
+        async createCategory({ commit }, item) {
+            try {
+                const response = await axios.post(apiUrls.storeItem, { item },
+                    {headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('token')}` // Add the token to the header
+                      }
+            });
+                commit('addCategory', response.data);
+            } catch (error) {
+                console.error('Error adding category:', error); 
+            }
         },
         // Update existing item in store
         async updateItem({ commit }, item) {
@@ -98,6 +140,7 @@ const store = createStore({
                 console.error('Error updating item:', error); 
             }
         },
+        
         // Remove item from store
         async deleteItem({ commit }, itemId) {
             try {
@@ -231,6 +274,8 @@ const store = createStore({
     // Get the list of items from the store
     getters: {
         items: state => state.items,
+        categories: state => state.categories,
+        byCategory: state => state.byCategory,
         isAuthenticated: state => !!state.token, 
     }
 });

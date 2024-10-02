@@ -8,14 +8,16 @@ use Modules\Items\Models\Item;
 
 class StoreItemAction implements StoreItemInterface
 {  
-    public function execute($itemName)
+    public function execute($item)
     {   
-        $newItem = Item::create([
-            'name' => $itemName,
-            'user_id' => Auth::id(),
-        ]);
-        
-        return $newItem;
+        if($item['parent_id'] !== null)
+        {
+            $parent = Item::find($item['parent_id']);
+            $parent->children()->create(['name' => $item['name'], 'user_id' => Auth::id()]);
+        } 
+        else 
+        {
+            Item::create(['name' => $item['name'], 'user_id' => Auth::id()]);
+        }
     }
-
 }

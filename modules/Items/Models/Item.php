@@ -5,12 +5,13 @@ namespace Modules\Items\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Users\Models\User;
+use Kalnoy\Nestedset\NodeTrait;
 use Iben\Statable\Statable;
 use Carbon\Carbon;
 
 class Item extends Model
 {
-    use HasFactory, Statable;
+    use HasFactory, Statable, NodeTrait;
 
     const STATUS_PENDING = 'pending';
     const STATUS_IN_PROGRESS = 'in_progress';
@@ -24,6 +25,7 @@ class Item extends Model
         'created_at',
         'status',
         'user_id',
+        'parent_id'
     ];
     
     protected $casts = [

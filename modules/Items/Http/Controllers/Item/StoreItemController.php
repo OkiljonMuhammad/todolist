@@ -14,6 +14,6 @@ class StoreItemController extends Controller
 {
     public function __invoke(ItemValidateRequest $request, StoreItemInterface $storeItem)
     {   
-        return $storeItem->execute($request->item['name']);
+        return $storeItem->execute($request->item);
     }
 }
